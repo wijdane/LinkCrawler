@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="" />
+    <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/Main.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,14 +26,27 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-74">
-              <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+            <state relative-caret-position="125">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4062#4063#0" expanded="true" />
-                <element signature="e#4156#4157#0" expanded="true" />
-                <element signature="e#3669#4303#0" expanded="true" />
-                <element signature="e#4302#4303#0" expanded="true" />
+                <element signature="e#4718#5350#0" expanded="true" />
+                <element signature="e#5349#5350#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1350">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#4000#4001#0" expanded="true" />
+                <element signature="e#4058#4059#0" expanded="true" />
+                <element signature="e#4091#4092#0" expanded="true" />
+                <element signature="e#4145#4146#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,23 +63,34 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>static</find>
       <find>MANUAL</find>
+      <find>private</find>
     </findStrings>
+    <replaceStrings>
+      <replace>public</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/Keyboard.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/TorMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-2" />
-    <option name="width" value="1600" />
-    <option name="height" value="902" />
+    <option name="y" value="24" />
+    <option name="width" value="800" />
+    <option name="height" value="876" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -99,6 +130,39 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="link" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="comleytonlinkcreator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="comleytonlinkcreator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-alpha-1" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="comleytonlinkcreator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-alpha-1" type="70bed36:NamedLibraryElementNode" />
+              <item name="selenium-chrome-driver-4.0.0-alpha-1.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="comleytonlinkcreator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:4.0.0-alpha-1" type="70bed36:NamedLibraryElementNode" />
+              <item name="selenium-chrome-driver-4.0.0-alpha-1.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="chrome" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="comleytonlinkcreator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-1" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="comleytonlinkcreator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.seleniumhq.selenium:selenium-firefox-driver:4.0.0-alpha-1" type="70bed36:NamedLibraryElementNode" />
+              <item name="selenium-firefox-driver-4.0.0-alpha-1.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -113,6 +177,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -126,9 +191,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.leyton.link.Main" />
+      <module name="comleytonlinkcreator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.leyton.link.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leyton.link.TorMain" />
       <module name="comleytonlinkcreator" />
       <extension name="coverage">
         <pattern>
@@ -143,6 +221,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TorMain" />
       </list>
     </recent_temporary>
   </component>
@@ -156,33 +235,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561727848975</updated>
-      <workItem from="1561727851784" duration="27918000" />
+      <workItem from="1561727851784" duration="39329000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27918000" />
+    <option name="totallyTimeSpent" value="39329000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="876" extended-state="7" />
+    <frame x="0" y="24" width="1600" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24967742" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.35548386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" sideWeight="0.4851613" weight="0.32859176" />
+      <window_info anchor="bottom" id="Messages" sideWeight="0.4851613" weight="0.32716927" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32859176" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32859176" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.51548386" side_tool="true" weight="0.32859176" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48451614" weight="0.32859176" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49935484" weight="0.3997155" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48451614" visible="true" weight="0.32716927" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49935484" weight="0.41753343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -194,7 +274,7 @@
       <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.516" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +300,16 @@
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>System.out.println(email+&quot;/&quot;+password)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>driver.findElement(By.id(&quot;ember3450&quot;))!=null</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>username</expression-string>
         <language-id>JAVA</language-id>
@@ -311,13 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/4.0.0-alpha-1/selenium-api-4.0.0-alpha-1.jar!/org/openqa/selenium/Proxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-179">
@@ -332,16 +415,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/4.0.0-alpha-1/selenium-chrome-driver-4.0.0-alpha-1.jar!/org/openqa/selenium/chrome/ChromeOptions.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-74">
-          <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+        <state relative-caret-position="108">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/4.0.0-alpha-1/selenium-chrome-driver-4.0.0-alpha-1.jar!/org/openqa/selenium/chrome/ChromeDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="32" column="21" selection-start-line="32" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-firefox-driver/4.0.0-alpha-1/selenium-firefox-driver-4.0.0-alpha-1.jar!/org/openqa/selenium/firefox/FirefoxProfile.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+          <folding>
+            <element signature="e#1501#1502#0" expanded="true" />
+            <element signature="e#1533#1534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Programs/jdk1.8.0_211/src.zip!/java/io/IOException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/TorMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4062#4063#0" expanded="true" />
-            <element signature="e#4156#4157#0" expanded="true" />
-            <element signature="e#3669#4303#0" expanded="true" />
-            <element signature="e#4302#4303#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1350">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#4000#4001#0" expanded="true" />
+            <element signature="e#4058#4059#0" expanded="true" />
+            <element signature="e#4091#4092#0" expanded="true" />
+            <element signature="e#4145#4146#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4718#5350#0" expanded="true" />
+            <element signature="e#5349#5350#0" expanded="true" />
           </folding>
         </state>
       </provider>
