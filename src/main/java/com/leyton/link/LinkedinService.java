@@ -1,12 +1,18 @@
 package com.leyton.link;
 
+import com.leyton.link.SQLiteConnection.SqliteConnection;
+import com.opencsv.CSVWriter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 public class LinkedinService {
     public static final String LINKEDIN_CREATION_PRIFIL = "https://www.linkedin.com";
@@ -40,7 +46,7 @@ public class LinkedinService {
             "Librarian"};
 
 
-    public Integer createLinkedInAccount(WebDriver driver) throws InterruptedException {
+    public Integer createLinkedInAccount(WebDriver driver) throws InterruptedException, IOException {
         WebElement firstNameElement = null;
         WebElement lastNameElement = null;
         WebElement joinMailElement = null;
@@ -77,10 +83,117 @@ public class LinkedinService {
         waitingForInfo();
         if(!driver.getCurrentUrl().contains("login")) {
             // TODO connected
+            //-----------------------------Load Names From CSV-----------------------
+            Connection connection = SqliteConnection.Connector();
+            String sqlQueryInsert = "INSERT INTO linkedCN(compagny_name,nbre_total,nbre_research,nbre_engineers) VALUES (?,?,?,?)";
+            String sqlQuerySelect = "SELECT compagny_name,nbre_total,nbre_research,nbre_engineers FROM linkedCN";
+            List<List<String>> name_compagny = new ArrayList<>();
+            try {
+                try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/datasource/namecompagny.csv"))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        String[] values = line.split(",");
+                        name_compagny.add(Arrays.asList(values));
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try (
+                    FileWriter fw = new FileWriter("linkedInData.txt", true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter writer = new PrintWriter(bw)) {
+                //-----------------------------END Load Names From CSV-----------------------
+                name_compagny.forEach(names -> {
+                    Iterator<String> nomCompagnies = names.iterator();
+                    nomCompagnies.forEachRemaining(compagnyName -> {
+                        String infos = null;
+                        String nbre_total = null;
+                        String nbre_research = null;
+                        String nbre_engineers = null;
+                        //******************************Searching- Get Number of Employees*****************************
+                        writer.println(compagnyName);
+                        infos = compagnyName;
+                        System.out.println("******************" + compagnyName + "*************************************");
+                        try {
+                            Thread.sleep(1000);
+                            nbre_total = LinkedinNumberEmployees.getNumberEmployees(driver, compagnyName);
+                            infos += ": NbrTotal " + nbre_total;
+                            System.out.println(nbre_total);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (org.openqa.selenium.NoSuchElementException e) {
+                            nomCompagnies.hasNext();
+                        }
+                        //**********PhD Number****************
+                        try {
+                            Thread.sleep(1000);
+                            nbre_research = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, compagnyName, "phd");
+                            infos += ", NbrPhD " + nbre_research;
+                            System.out.println("PhD: " + nbre_research);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (org.openqa.selenium.NoSuchElementException ec) {
+                            nomCompagnies.hasNext();
+                        }
+                        //**********Software Number****************
+                        try {
+                            Thread.sleep(1000);
+                            nbre_engineers = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, compagnyName, "software");
+                            infos += ", NbrSoftware " + nbre_engineers;
+                            writer.write(infos);
+                            writer.write("**********************************");
+                                 System.out.println("Software: " + nbre_engineers);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (NoSuchElementException e) {
+                            nomCompagnies.hasNext();
+                        }
+                        try {
+                            PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryInsert);
+                            preparedStatement.setString(1, compagnyName);
+                            preparedStatement.setString(2, nbre_total);
+                            preparedStatement.setString(3, nbre_research);
+                            preparedStatement.setString(4, nbre_engineers);
+                            preparedStatement.execute();
+                            System.out.println("Succès! (coté SQLite)");
+                        } catch (SQLException e) {
+                            System.out.println("Fail! (coté SQLite)");
+                            e.printStackTrace();
+                        }
+                    });
+                });
+            }
+            System.out.println("Clear array");
+            name_compagny.clear();
+            File file = new File("./linkedinData.csv");
+            try {
+                System.out.println("Creating CSV File...");
+                FileWriter outputfile = new FileWriter(file);
+                CSVWriter writer = new CSVWriter(outputfile, ',');
+                List<String[]> FromDBtoCSVArray = new ArrayList<>();
+                ResultSet resultSet = connection.createStatement().executeQuery(sqlQuerySelect);
+                while (resultSet.next()) {
+                    String[] donnees = new String[]{resultSet.getString(1), resultSet.getString(2)
+                            , resultSet.getString(3), resultSet.getString(4)};
+                    FromDBtoCSVArray.add(donnees);
+                }
+                System.out.println("Adding data into CSV File...");
+                String[] header = {"Compagny Name", "Nbre Total", "Nbre Researchers", "Nbre Engineers"};
+                writer.writeNext(header);
+                writer.writeAll(FromDBtoCSVArray);
+                System.out.println("Done!");
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                System.out.println("Fail (SELECT)!");
+                e.printStackTrace();
+            }
+            //TODO end
             System.out.println(email + "/" + password);
             return 1;
         }
-
         return  0;
     }
 

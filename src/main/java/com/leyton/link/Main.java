@@ -17,20 +17,15 @@ public class Main {
     public static final int MAX_PROXIES = 1000;
     // csv file info
     private static int numberOfAccount=1;
-
     private static LinkedinService linkedinService = new LinkedinService();
-
-
     private static ChromeDriver driver;
     private static int count = 0;
 
     public static void main(String[] args) throws AWTException, InterruptedException, IOException {
         String home = System.getProperty("user.home");
-        System.setProperty("webdriver.chrome.driver",home+"/chromedriver");
-        System.setProperty("webdriver.firefox.marionette",home+"/geckodriver");
-
+        System.setProperty("webdriver.chrome.driver","src/main/resources/drivers/chromedriver");
+        System.setProperty("webdriver.firefox.marionette","src/main/resources/drivers/geckodriver");
         String fileName = home+"/proxies.csv";
-
         try (FileInputStream fis = new FileInputStream(fileName);
              InputStreamReader isr = new InputStreamReader(fis);
              CSVReader reader = new CSVReader(isr, ':')) {
@@ -54,25 +49,16 @@ public class Main {
                 }
             }while (count<numberOfAccount);
         }
-
     }
 
-    private static void authAndWork(String username, String password, String proxy) throws InterruptedException {
+    private static void authAndWork(String username, String password, String proxy) throws InterruptedException, IOException {
         // create proxy
-
         DesiredCapabilities capabilities = createProxy(proxy);
-
-
         driver = new ChromeDriver(capabilities);
-
         authentification(username, password);
-
         waitingForInfo();
         count+=linkedinService.createLinkedInAccount(driver);
-
     }
-
-
 
     private static void authentification(final String username, final String password) {
         new Thread(new Runnable() {
@@ -90,7 +76,6 @@ public class Main {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         }).start();
     }
@@ -104,7 +89,6 @@ public class Main {
         proxy.setProxyType(Proxy.ProxyType.MANUAL);
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("proxy", proxy);
-
         return capabilities;
     }
 
