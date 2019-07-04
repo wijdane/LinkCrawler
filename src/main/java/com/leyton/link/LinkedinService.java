@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class LinkedinService {
-    public static final String LINKEDIN_CREATION_PRIFIL = "https://www.linkedin.com";
+    public static final String LINKEDIN_CREATION_PROFIL = "https://www.linkedin.com";
     public static final String GENERATOR_EMAIL_URL = "https://generator.email/";
     // class variable
     final static String lexicon = "abcdefghijklmnopqrstuvwxyz";
@@ -53,8 +53,8 @@ public class LinkedinService {
         WebElement joinPasswordElement = null;
         WebElement joinButton = null;
 
-        driver.get(LINKEDIN_CREATION_PRIFIL);
-        driver.get(LINKEDIN_CREATION_PRIFIL);
+        driver.get(LINKEDIN_CREATION_PROFIL);
+        driver.get(LINKEDIN_CREATION_PROFIL);
         waitingForInfo();
         driver.findElement(By.className("nav__button-tertiary")).click();
         waitingForInfo();

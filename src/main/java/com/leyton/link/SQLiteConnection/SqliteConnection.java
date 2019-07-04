@@ -8,7 +8,7 @@ public class SqliteConnection {
     {
         try{
             Class.forName("org.sqlite.JDBC");
-            Connection conn= DriverManager.getConnection("jdbc:sqlite:linkedIndata");
+            Connection conn= DriverManager.getConnection("jdbc:sqlite:linkedinCN");
             System.out.println("Connected!");
             return conn;
         } catch (Exception e) {
