@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/drivers/chromedriver" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/drivers/geckodriver" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_23_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/SQLiteConnection/SqliteConnection.java" />
+    <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="Some changes FD">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/Keyboard.class" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/Keyboard.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/Main$1.class" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/Main$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/Main.class" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -205,6 +195,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -293,12 +284,20 @@
       <updated>1561727848975</updated>
       <workItem from="1561727851784" duration="39605000" />
       <workItem from="1562228887908" duration="7900000" />
-      <workItem from="1562237596730" duration="663000" />
+      <workItem from="1562237596730" duration="684000" />
     </task>
+    <task id="LOCAL-00001" summary="Some changes FD">
+      <created>1562238275316</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1562238275316</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48168000" />
+    <option name="totallyTimeSpent" value="48189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1545" height="904" extended-state="6" />
@@ -338,6 +337,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Some changes FD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes FD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
