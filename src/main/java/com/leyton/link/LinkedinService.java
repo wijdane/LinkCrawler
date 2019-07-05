@@ -19,7 +19,7 @@ public class LinkedinService {
     public static final String GENERATOR_EMAIL_URL = "https://generator.email/";
     // class variable
     final static String lexicon = "abcdefghijklmnopqrstuvwxyz";
-
+    static String currentCompagnyName=null;
     final static java.util.Random rand = new java.util.Random();
     final static Set<String> identifiers = new HashSet<>();
 
@@ -107,17 +107,17 @@ public class LinkedinService {
                 name_compagny.forEach(names -> {
                     Iterator<String> nomCompagnies = names.iterator();
                     nomCompagnies.forEachRemaining(compagnyName -> {
+                        currentCompagnyName=compagnyName;
                         String infos = null;
                         String nbre_total = null;
                         String nbre_research = null;
                         String nbre_engineers = null;
                         //******************************Searching- Get Number of Employees*****************************
-                        writer.println(compagnyName);
-                        infos = compagnyName;
-                        System.out.println("******************" + compagnyName + "*************************************");
+                        infos = currentCompagnyName;
+                        System.out.println("******************" + currentCompagnyName + "*************************************");
                         try {
                             Thread.sleep(1000);
-                            nbre_total = LinkedinNumberEmployees.getNumberEmployees(driver, compagnyName);
+                            nbre_total = LinkedinNumberEmployees.getNumberEmployees(driver, currentCompagnyName);
                             infos += ": NbrTotal " + nbre_total;
                             System.out.println(nbre_total);
                         } catch (InterruptedException e) {
@@ -128,7 +128,7 @@ public class LinkedinService {
                         //**********PhD Number****************
                         try {
                             Thread.sleep(1000);
-                            nbre_research = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, compagnyName, "phd");
+                            nbre_research = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, currentCompagnyName, "phd");
                             infos += ", NbrPhD " + nbre_research;
                             System.out.println("PhD: " + nbre_research);
                         } catch (InterruptedException e) {
@@ -139,7 +139,7 @@ public class LinkedinService {
                         //**********Software Number****************
                         try {
                             Thread.sleep(1000);
-                            nbre_engineers = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, compagnyName, "software");
+                            nbre_engineers = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, currentCompagnyName, "software");
                             infos += ", NbrSoftware " + nbre_engineers;
                             writer.write(infos);
                             writer.write("**********************************");
@@ -151,12 +151,16 @@ public class LinkedinService {
                         }
                         try {
                             PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryInsert);
-                            preparedStatement.setString(1, compagnyName);
+                            preparedStatement.setString(1, currentCompagnyName);
                             preparedStatement.setString(2, nbre_total);
                             preparedStatement.setString(3, nbre_research);
                             preparedStatement.setString(4, nbre_engineers);
                             preparedStatement.execute();
                             System.out.println("Succès! (coté SQLite)");
+                            if (compagnyName.equals(currentCompagnyName)) {
+                                nomCompagnies.remove();
+                            }
+                            System.out.println("End treatement: "+nomCompagnies);
                         } catch (SQLException e) {
                             System.out.println("Fail! (coté SQLite)");
                             e.printStackTrace();
@@ -191,7 +195,7 @@ public class LinkedinService {
                 e.printStackTrace();
             }
             //TODO end
-            System.out.println(email + "/" + password);
+            System.out.println(email + "\n" + password);
             return 1;
         }
         return  0;
@@ -212,7 +216,6 @@ public class LinkedinService {
 
     public  char[] generatePswd(int len)
     {
-        System.out.println("Your Password:");
         String charsCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String chars = "abcdefghijklmnopqrstuvwxyz";
         String nums = "0123456789";
