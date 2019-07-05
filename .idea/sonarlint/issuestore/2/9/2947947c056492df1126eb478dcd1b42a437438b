@@ -1,0 +1,29 @@
+
+vsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(‘Ó¼±ûÿÿÿÿ8ŠÇçä»-
+qsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(µÑ—þ8ŠÇçä»-
+Hsquid:S2116J"%Use "Arrays.toString(array)" instead.(ƒé²Ûùÿÿÿÿ8ŠÇçä»-
+Z
+squid:S899”"<Do something with the "boolean" value returned by "hasNext".(“”£ˆ8ŠÇçä»-
+vsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ù…™·þÿÿÿÿ8ŠÇçä»-
+isquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(†Þøó8ŠÇçä»-
+esquid:S2142‘"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ŠÇçä»-
+gsquid:HiddenFieldChecki"9Rename "names" which hides the field declared at line 24.(™ù¡±ùÿÿÿÿ8ŠÇçä»-
+vsquid:ModifiersOrderCheck%"EReorder the modifiers to comply with the Java Language Specification.(âõœ¸ÿÿÿÿÿ8ŠÇçä»-
+Usquid:S1135S"2Complete the task associated to this TODO comment.(†Òø¿ûÿÿÿÿ8ŠÇçä»-
+dsquid:S2142y"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ŠÇçä»-
+Gsquid:S2140G")Use "java.util.Random.nextInt()" instead.(ËãÅÓ8ŠÇçä»-
+Z
+squid:S899‡"<Do something with the "boolean" value returned by "hasNext".(“”£ˆ8ŠÇçä»-
+qsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(»¹îË8ŠÇçä»-
+esquid:S2142„"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ŠÇçä»-
+Vsquid:S1135¥"2Complete the task associated to this TODO comment.(º¨‰ñüÿÿÿÿ8ŠÇçä»-
+Msquid:S2140¶")Use "java.util.Random.nextInt()" instead.(“·—àúÿÿÿÿ8ŠÇçä»-
+Y
+squid:S899|"<Do something with the "boolean" value returned by "hasNext".(“”£ˆ8ŠÇçä»-
+ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(µÑ—þ8ŠÇçä»-
+qsquid:S1192½"MUse already-defined constant 'lexicon' instead of duplicating its value here.(‡Î†‚þÿÿÿÿ8ŠÇçä»-
+Qsquid:S1481W"3Remove this unused "sqlQuerySelect" local variable.(Ì©¥÷8ŠÇçä»-
+=squid:S2119Â"Save and re-use this "Random".(–áÍÈ8ŠÇçä»-
+vsquid:ModifiersOrderCheck#"EReorder the modifiers to comply with the Java Language Specification.(¡Áòüüÿÿÿÿ8ŠÇçä»-
+Msquid:S2140²")Use "java.util.Random.nextInt()" instead.(¬Ù¾ùÿÿÿÿ8ŠÇçä»-
+psquid:S3776/"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(¸¹¦ò8ŠÇçä»-
