@@ -19,22 +19,22 @@ public class LinkedinService {
     public static final String GENERATOR_EMAIL_URL = "https://generator.email/";
     // class variable
     final static String lexicon = "abcdefghijklmnopqrstuvwxyz";
-    static String currentCompagnyName=null;
+    static String currentCompagnyName = null;
     final static java.util.Random rand = new java.util.Random();
     final static Set<String> identifiers = new HashSet<>();
 
     final static String[] names = new String[]{"Korbyn",
-            "Markus","Ammar","Karim","Faycel","Malek","Youssef",
+            "Markus", "Ammar", "Karim", "Faycel", "Malek", "Youssef",
             "Chance",
-            "Anderson","Bowie",
+            "Anderson", "Bowie",
             "Deangelo",
-            "Harlem","Forest" +
-            "Benedict","Boden",
-            "Camdyn","Liam",
+            "Harlem", "Forest" +
+            "Benedict", "Boden",
+            "Camdyn", "Liam",
             "Noah",
             "William",
-            "James","Luna", "Langona","Syspa","Rosalina","Hafida","Amila","Samida","Abdellah","Mohammed","Ahmed","Abdeali","Sosan","Samira","Abdelhak","Kabira","Romana","Jomana"};
-    final static String[] lastNames = new String[]{"PECK","SANFORD","LEWIS","WALLER","EDWARDS","EVANS","PHILLIPS","TURNER","NELSON","GONZALEZ","ADAMS","YOUNG","ALLEN","HALL","CLARK","RODRIGUEZ","Gafner", "Gagan" ,"Gagas", "Gage" ,"Gagel" ,"Gagen" ,"Gager" ,"Gagliano" ,"Gagliardi" ,"Gagliardo", "Gaglio" ,"Gaglione" ,"Gagnard","Gagne","Kabira","Romana","Jomana"};
+            "James", "Luna", "Langona", "Syspa", "Rosalina", "Hafida", "Amila", "Samida", "Abdellah", "Mohammed", "Ahmed", "Abdeali", "Sosan", "Samira", "Abdelhak", "Kabira", "Romana", "Jomana"};
+    final static String[] lastNames = new String[]{"PECK", "SANFORD", "LEWIS", "WALLER", "EDWARDS", "EVANS", "PHILLIPS", "TURNER", "NELSON", "GONZALEZ", "ADAMS", "YOUNG", "ALLEN", "HALL", "CLARK", "RODRIGUEZ", "Gafner", "Gagan", "Gagas", "Gage", "Gagel", "Gagen", "Gager", "Gagliano", "Gagliardi", "Gagliardo", "Gaglio", "Gaglione", "Gagnard", "Gagne", "Kabira", "Romana", "Jomana"};
 
     final static String[] titles = new String[]{"Marketing", "Coordinator",
             "Medical Assistant",
@@ -54,51 +54,52 @@ public class LinkedinService {
         WebElement joinButton = null;
 
         driver.get(LINKEDIN_CREATION_PROFIL);
-        driver.get(LINKEDIN_CREATION_PROFIL);
-        waitingForInfo();
+        LinkedinNumberEmployees.waitingForInfo();
         driver.findElement(By.className("nav__button-tertiary")).click();
-        waitingForInfo();
+        LinkedinNumberEmployees.waitingForInfo();
         firstNameElement = driver.findElement(By.xpath("//*[@id=\"first-name\"]"));
         lastNameElement = driver.findElement(By.xpath("//*[@id=\"last-name\"]"));
         joinMailElement = driver.findElement(By.xpath("//*[@id=\"join-email\"]"));
         joinPasswordElement = driver.findElement(By.xpath("//*[@id=\"join-password\"]"));
-        joinButton =driver.findElement(By.xpath("//*[@id=\"uno-reg-join\"]/div/div/div/div[2]/div[1]/div[1]/div[2]/form/fieldset/button"));
+        joinButton = driver.findElement(By.xpath("//*[@id=\"uno-reg-join\"]/div/div/div/div[2]/div[1]/div[1]/div[2]/form/fieldset/button"));
 
         String name = findName();
         firstNameElement.sendKeys(name);
-        waitingForInfo();
+        LinkedinNumberEmployees.waitingForInfo();
         String lastName = findLastName();
         lastNameElement.sendKeys(lastName);
-        waitingForInfo();
+        LinkedinNumberEmployees.waitingForInfo();
         String email = name + "." + lastName + ((int) (Math.random() * 1000)) + "@gmail.com";
         joinMailElement.sendKeys(email);
-        waitingForInfo();
+        LinkedinNumberEmployees.waitingForInfo();
         String password = generatePswd(15).toString();
         joinPasswordElement.sendKeys(password);
-        waitingForInfo();
+        LinkedinNumberEmployees.waitingForInfo();
         joinButton.click();
 
         // continue
         //driver.get("https://www.linkedin.com/feed/");
-        waitingForInfo();
-        if(!driver.getCurrentUrl().contains("login")) {
+        LinkedinNumberEmployees.waitingForInfo();
+        if (!driver.getCurrentUrl().contains("login")) {
             // TODO connected
             //-----------------------------Load Names From CSV-----------------------
             Connection connection = SqliteConnection.Connector();
             String sqlQueryInsert = "INSERT INTO linkedCN(compagny_name,nbre_total,nbre_research,nbre_engineers) VALUES (?,?,?,?)";
             String sqlQuerySelect = "SELECT compagny_name,nbre_total,nbre_research,nbre_engineers FROM linkedCN";
-            List<List<String>> name_compagny = new ArrayList<>();
+            LinkedList<List<String>> name_compagny = new LinkedList<>();
             try {
                 try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/datasource/namecompagny.csv"))) {
                     String line;
                     while ((line = br.readLine()) != null) {
                         String[] values = line.split(",");
-                        name_compagny.add(Arrays.asList(values));
+                        name_compagny.add(new LinkedList<String>(Arrays.asList(values)));
                     }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
             try (
                     FileWriter fw = new FileWriter("linkedInData.txt", true);
                     BufferedWriter bw = new BufferedWriter(fw);
@@ -107,7 +108,7 @@ public class LinkedinService {
                 name_compagny.forEach(names -> {
                     Iterator<String> nomCompagnies = names.iterator();
                     nomCompagnies.forEachRemaining(compagnyName -> {
-                        currentCompagnyName=compagnyName;
+                        currentCompagnyName = compagnyName;
                         String infos = null;
                         String nbre_total = null;
                         String nbre_research = null;
@@ -116,7 +117,7 @@ public class LinkedinService {
                         infos = currentCompagnyName;
                         System.out.println("******************" + currentCompagnyName + "*************************************");
                         try {
-                            Thread.sleep(1000);
+                            LinkedinNumberEmployees.waitingForInfo();
                             nbre_total = LinkedinNumberEmployees.getNumberEmployees(driver, currentCompagnyName);
                             infos += ": NbrTotal " + nbre_total;
                             System.out.println(nbre_total);
@@ -127,7 +128,7 @@ public class LinkedinService {
                         }
                         //**********PhD Number****************
                         try {
-                            Thread.sleep(1000);
+                            LinkedinNumberEmployees.waitingForInfo();
                             nbre_research = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, currentCompagnyName, "phd");
                             infos += ", NbrPhD " + nbre_research;
                             System.out.println("PhD: " + nbre_research);
@@ -143,7 +144,7 @@ public class LinkedinService {
                             infos += ", NbrSoftware " + nbre_engineers;
                             writer.write(infos);
                             writer.write("**********************************");
-                                 System.out.println("Software: " + nbre_engineers);
+                            System.out.println("Software: " + nbre_engineers);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } catch (NoSuchElementException e) {
@@ -157,10 +158,12 @@ public class LinkedinService {
                             preparedStatement.setString(4, nbre_engineers);
                             preparedStatement.execute();
                             System.out.println("Succès! (coté SQLite)");
-                            if (compagnyName.equals(currentCompagnyName)) {
+
+                            //dead code
+                         /*   if (compagnyName.equals(currentCompagnyName)) {
                                 nomCompagnies.remove();
-                            }
-                            System.out.println("End treatement: "+nomCompagnies);
+                            }*/
+                            System.out.println("End treatement: " + nomCompagnies);
                         } catch (SQLException e) {
                             System.out.println("Fail! (coté SQLite)");
                             e.printStackTrace();
@@ -168,6 +171,8 @@ public class LinkedinService {
                     });
                 });
             }
+
+
             System.out.println("Clear array");
             name_compagny.clear();
             File file = new File("./linkedinData.csv");
@@ -198,24 +203,19 @@ public class LinkedinService {
             System.out.println(email + "\n" + password);
             return 1;
         }
-        return  0;
+        return 0;
     }
 
 
-    public  void waitingForInfo() throws InterruptedException {
-        Thread.sleep((long) (Math.random()*2000+1000));
+    public String findLastName() {
+        return lastNames[(int) (Math.random() * 17)];
     }
 
-    public  String findLastName() {
-        return lastNames[(int) (Math.random()*17)];
+    public String findName() {
+        return names[(int) (Math.random() * 17)];
     }
 
-    public  String findName() {
-        return names[(int) (Math.random()*17)];
-    }
-
-    public  char[] generatePswd(int len)
-    {
+    public char[] generatePswd(int len) {
         String charsCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String chars = "abcdefghijklmnopqrstuvwxyz";
         String nums = "0123456789";
@@ -225,12 +225,11 @@ public class LinkedinService {
         Random rnd = new Random();
 
         char[] password = new char[len];
-        for (int i = 0; i < len; i++)
-        {
+        for (int i = 0; i < len; i++) {
             password[i] = passSymbols.charAt(rnd.nextInt(passSymbols.length()));
 
         }
-        System.out.println(" password : "+password);
+        System.out.println(" password : " + password);
         return password;
     }
 

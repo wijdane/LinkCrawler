@@ -16,38 +16,37 @@ import java.util.List;
 public class Main {
     public static final int MAX_PROXIES = 1000;
     // csv file info
-    private static int numberOfAccount=1;
+    private static int numberOfAccount = 1;
     private static LinkedinService linkedinService = new LinkedinService();
     private static ChromeDriver driver;
     private static int count = 0;
 
     public static void main(String[] args) throws AWTException, InterruptedException, IOException {
         String home = System.getProperty("user.home");
-        System.setProperty("webdriver.chrome.driver","src/main/resources/drivers/chromedriver");
-        System.setProperty("webdriver.firefox.marionette","src/main/resources/drivers/geckodriver");
-        String fileName = home+"/proxies.csv";
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+        System.setProperty("webdriver.firefox.marionette", "src/main/resources/drivers/geckodriver");
+        String fileName = home + "/proxies.csv";
         try (FileInputStream fis = new FileInputStream(fileName);
              InputStreamReader isr = new InputStreamReader(fis);
              CSVReader reader = new CSVReader(isr, ':')) {
             String[] nextLine;
             // index
-            int i=0;
+            int i = 0;
             List<String[]> myEntries = reader.readAll();
-            do{
-                int random = (int) ((Math.random()*MAX_PROXIES));
-                final String username =myEntries.get(random)[2];
+            do {
+                int random = (int) ((Math.random() * MAX_PROXIES));
+                final String username = myEntries.get(random)[2];
                 final String password = myEntries.get(random)[3];
-                final String proxy = myEntries.get(random)[0]+":"+myEntries.get(random)[1];
+                final String proxy = myEntries.get(random)[0] + ":" + myEntries.get(random)[1];
                 try {
-                    if(driver!=null){
+                    if (driver != null) {
                         driver.quit();
                     }
                     authAndWork(username, password, proxy);
+                } catch (Exception ex) {
+                    System.out.println("Error : other window will be created." + ex);
                 }
-                catch (Exception ex){
-                    System.out.println("Error : other window will be created.");
-                }
-            }while (count<numberOfAccount);
+            } while (count < numberOfAccount);
         }
     }
 
@@ -57,7 +56,7 @@ public class Main {
         driver = new ChromeDriver(capabilities);
         authentification(username, password);
         waitingForInfo();
-        count+=linkedinService.createLinkedInAccount(driver);
+        count += linkedinService.createLinkedInAccount(driver);
     }
 
     private static void authentification(final String username, final String password) {
@@ -93,6 +92,6 @@ public class Main {
     }
 
     private static void waitingForInfo() throws InterruptedException {
-        Thread.sleep((long) (Math.random()*2000+1000));
+        Thread.sleep((long) (Math.random() * 2000 + 1000));
     }
 }
