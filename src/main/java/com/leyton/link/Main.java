@@ -14,7 +14,7 @@ import java.util.List;
 
 
 public class Main {
-    public static final int MAX_PROXIES = 1000;
+    public static final int MAX_PROXIES = 724;
     // csv file info
     private static int numberOfAccount = 1;
     private static LinkedinService linkedinService = new LinkedinService();
