@@ -11,23 +11,7 @@ public class LinkedinNumberEmployees {
 
     public static String getNumberEmployees(WebDriver driver, String compagnyName) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 50);
-        String currentUrl = driver.getCurrentUrl();
-
-        if (currentUrl.equals("https://www.linkedin.com/onboarding/start/profile-location/new/")) {
-            goToLikendInPage(driver, compagnyName);
-
-        } else if (currentUrl.equals("https://www.linkedin.com/start/reg/api/createAccount")) {
-            driver.get("https://www.linkedin.com/onboarding/start/?source=");
-            waitingForInfo();
-            goToLikendInPage(driver, compagnyName);
-        }
-        String numberEmployees = null;
-        // driver.get("https://www.linkedin.com/search/results/people/?keywords=" + compagnyName + "&origin=SWITCH_SEARCH_VERTICAL");
-        numberEmployees = getStringFilter(driver, compagnyName, wait, numberEmployees);
-        return numberEmployees;
-    }
-
-    private static void goToLikendInPage(WebDriver driver, String compagnyName) throws InterruptedException {
+        driver.get("https://www.linkedin.com/feed/");
         driver.findElement(By.xpath("//*[@id=\"ember36\"]/li-icon/svg/g/g[3]/g[1]/g[1]/path[2]")).click();
         WebElement searchInput = driver.findElement(By.xpath("//*[@id=\"ember32\"]/input"));
         searchInput.sendKeys(compagnyName);
@@ -36,7 +20,10 @@ public class LinkedinNumberEmployees {
         WebElement peopleLink = driver.findElement(By.xpath("//*[@id=\"ember1802\"]"));
         peopleLink.click();
         waitingForInfo();
-
+        String numberEmployees = null;
+        // driver.get("https://www.linkedin.com/search/results/people/?keywords=" + compagnyName + "&origin=SWITCH_SEARCH_VERTICAL");
+        numberEmployees = getStringFilter(driver, compagnyName, wait, numberEmployees);
+        return numberEmployees;
     }
 
     public static String getNumberEmployeesFilter(WebDriver driver, String compagnyName, String filtername) throws InterruptedException {
