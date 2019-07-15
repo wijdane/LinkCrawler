@@ -11,7 +11,7 @@ public class LinkedinNumberEmployees {
 
     public static String getNumberEmployees(WebDriver driver, String compagnyName) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 50);
-        driver.get("https://www.linkedin.com/feed/");
+      /**  driver.get("https://www.linkedin.com/feed/");
         driver.findElement(By.xpath("//*[@id=\"ember36\"]/li-icon/svg/g/g[3]/g[1]/g[1]/path[2]")).click();
         WebElement searchInput = driver.findElement(By.xpath("//*[@id=\"ember32\"]/input"));
         searchInput.sendKeys(compagnyName);
@@ -22,7 +22,15 @@ public class LinkedinNumberEmployees {
         waitingForInfo();
         String numberEmployees = null;
         // driver.get("https://www.linkedin.com/search/results/people/?keywords=" + compagnyName + "&origin=SWITCH_SEARCH_VERTICAL");
-        numberEmployees = getStringFilter(driver, compagnyName, wait, numberEmployees);
+        numberEmployees = getStringFilter(driver, compagnyName, wait, numberEmployees);**/
+        
+        WebElement searchInput = driver.findElement(By.xpath("//input[@aria-label=\"Search\"]"));
+        searchInput.sendKeys(compagnyName);
+        searchInput.sendKeys(Keys.ENTER);
+        waitingForInfo();
+        String numberEmployees = null;
+        // driver.get("https://www.linkedin.com/search/results/people/?keywords=" + compagnyName + "&origin=SWITCH_SEARCH_VERTICAL");
+         numberEmployees = getStringFilter(driver, compagnyName, wait, numberEmployees);
         return numberEmployees;
     }
 
