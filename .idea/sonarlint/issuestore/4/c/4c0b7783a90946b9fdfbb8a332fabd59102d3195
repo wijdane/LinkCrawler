@@ -1,0 +1,6 @@
+
+Vsquid:UselessParenthesesCheck%"!Remove these useless parentheses.(şƒùÿÿÿÿ8îƒ£ä»-
+Ksquid:S1481 "-Remove this unused "nextLine" local variable.(ØºàÒ8îƒ£ä»-
+Isquid:S1481""&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ8îƒ£ä»-
+Lsquid:S2140%")Use "java.util.Random.nextInt()" instead.(şƒùÿÿÿÿ8îƒ£ä»-
+Fsquid:S1604@"(Make this anonymous inner class a lambda(ÉãÃ®8îƒ£ä»-
