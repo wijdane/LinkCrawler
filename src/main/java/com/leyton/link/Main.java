@@ -17,7 +17,6 @@ import java.util.List;
 public class Main {
     public static final int MAX_PROXIES = 700;
     // csv file info
-    private static int numberOfAccount = 1;
     private static LinkedinService linkedinService = new LinkedinService();
     private static ChromeDriver driver;
     private static int count = 0;
@@ -47,7 +46,7 @@ public class Main {
                 } catch (Exception ex) {
                     System.out.println("Error : other window will be created." + ex);
                 }
-            } while (count < numberOfAccount);
+            } while (true);
         }
     }
 

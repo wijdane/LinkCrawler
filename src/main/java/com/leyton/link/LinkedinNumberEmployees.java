@@ -32,7 +32,7 @@ public class LinkedinNumberEmployees {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 50);
             driver.get("https://www.linkedin.com/");
-            WebElement searchInput = driver.findElement(By.xpath("//*[@id=\"ember33\"]/input"));
+            WebElement searchInput = driver.findElement(By.xpath("//input[@aria-label=\"Search\"]"));
             searchInput.sendKeys(compagnyName);
             waitingForInfo();
             searchInput.sendKeys(Keys.ENTER);

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="Some changes FD*" />
+    <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="Some changes FD*">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,20 +61,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+            <state relative-caret-position="540">
+              <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            <state relative-caret-position="1278">
+              <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -124,8 +128,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/1f97bab1-66cc-42af-883b-67376f4fa4b6/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/SQLiteConnection/FeedDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" />
       </list>
     </option>
   </component>
@@ -159,8 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,6 +224,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,7 +338,8 @@
       <workItem from="1562259111998" duration="181000" />
       <workItem from="1562259315491" duration="768000" />
       <workItem from="1563018648786" duration="1877000" />
-      <workItem from="1563202654003" duration="710000" />
+      <workItem from="1563202654003" duration="1226000" />
+      <workItem from="1563207820966" duration="208000" />
     </task>
     <task id="LOCAL-00001" summary="Some changes FD">
       <created>1562238275316</created>
@@ -361,13 +366,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58614000" />
+    <option name="totallyTimeSpent" value="59338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11354839" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27096775" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -376,15 +381,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32859176" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12944524" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.62019914" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="SonarLint" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32933334" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32859176" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32900432" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32933334" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32859176" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32716927" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -405,6 +410,46 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Some changes FD" />
@@ -565,6 +610,13 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1f97bab1-66cc-42af-883b-67376f4fa4b6/console.sql" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/datasource/proxies.csv" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1278">
+          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -577,15 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        <state relative-caret-position="540">
+          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
         </state>
       </provider>
     </entry>
