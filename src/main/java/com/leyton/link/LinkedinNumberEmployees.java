@@ -25,12 +25,13 @@ public class LinkedinNumberEmployees {
          numberEmployees = getStringFilter(driver, compagnyName, wait, numberEmployees);**/
 
         WebElement searchInput = driver.findElement(By.cssSelector(".nav-search-bar input"));
+        searchInput.clear();
         searchInput.sendKeys(compagnyName);
         searchInput.sendKeys(Keys.ENTER);
         waitingForInfo();
         String numberEmployees = null;
         // driver.get("https://www.linkedin.com/search/results/people/?keywords=" + compagnyName + "&origin=SWITCH_SEARCH_VERTICAL");
-        numberEmployees = getStringFilter(driver, compagnyName, wait, numberEmployees);
+        numberEmployees = getNumberTotal(driver, wait, numberEmployees);
         return numberEmployees;
 
     }
@@ -41,6 +42,7 @@ public class LinkedinNumberEmployees {
             WebDriverWait wait = new WebDriverWait(driver, 50);
             driver.get("https://www.linkedin.com/");
             WebElement searchInput = driver.findElement(By.cssSelector(".nav-search-bar input"));
+            searchInput.clear();
             searchInput.sendKeys(compagnyName);
             waitingForInfo();
             searchInput.sendKeys(Keys.ENTER);
@@ -75,13 +77,9 @@ public class LinkedinNumberEmployees {
                 }
             }
             WebElement applyFilterElement = driver.findElement(By.className("search-advanced-facets__button--apply"));
-            Thread.sleep(100);
+            waitingForInfo();
             applyFilterElement.click();
-            System.out.println(driver.findElement(By.className("search-results__total")).isDisplayed());
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results__total")));
-            Thread.sleep(1500);
-            WebElement nombre_employee = driver.findElement(By.className("search-results__total"));
-            numberEmployees = nombre_employee.getText();
+            numberEmployees = getNumberTotal(driver, wait, numberEmployees);
         } catch (NoSuchElementException e) {
             WebElement introuvable = driver.findElement(By.className("search-no-results__container"));
             WebElement nosearch = introuvable.findElement(By.className("t-20"));
@@ -110,5 +108,28 @@ public class LinkedinNumberEmployees {
         Thread.sleep((long) (Math.random() * 2000 + 1000));
     }
 
+    private static String getNumberTotal(WebDriver driver, WebDriverWait wait, String numberEmployees) throws InterruptedException {
+        System.out.println(driver.findElement(By.className("search-results__total")).isDisplayed());
+
+
+        try {
+            if (driver.findElement(By.xpath("//*[@data-control-name='all_filters_clear']")) != null) {
+                // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@data-control-name='all_filters_clear']")));
+                driver.findElement(By.xpath("//*[@data-control-name='all_filters_clear']")).click();
+                Thread.sleep(1500);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results__total")));
+                Thread.sleep(1500);
+                WebElement nombre_employee = driver.findElement(By.className("search-results__total"));
+                numberEmployees = nombre_employee.getText();
+            }
+        } catch (NoSuchElementException e) {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results__total")));
+            Thread.sleep(1500);
+            WebElement nombre_employee = driver.findElement(By.className("search-results__total"));
+            numberEmployees = nombre_employee.getText();
+        }
+
+        return numberEmployees;
+    }
 }
 
