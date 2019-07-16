@@ -48,6 +48,7 @@ public class LinkedinService {
             "Nursing Assistant",
             "Project Manager",
             "Librarian"};
+    private static Connection connector;
 
 
     public Integer createLinkedInAccount(WebDriver driver) throws InterruptedException, IOException, SQLException {
@@ -99,7 +100,7 @@ public class LinkedinService {
         if (!driver.getCurrentUrl().contains("login")) {
             // TODO connected
             //-----------------------------Load Names From CSV-----------------------
-            Connection connection = SqliteConnection.Connector();
+            Connection connection = getConnector();
             String sqlQueryInsert = "INSERT INTO linkedCN(compagny_name,nbre_total,nbre_research,nbre_engineers) VALUES (?,?,?,?)";
             String sqlQuerySelect = "SELECT compagny_name,nbre_total,nbre_research,nbre_engineers FROM linkedCN";
             LinkedList<List<String>> name_compagny = new LinkedList<>();
@@ -201,8 +202,15 @@ public class LinkedinService {
             return 0;
         }
 
+    private Connection getConnector() {
+        if(connector==null) {
+            connector = SqliteConnection.Connector();
+        }
+        return connector;
+    }
 
-        public String findLastName () {
+
+    public String findLastName () {
             return lastNames[(int) (Math.random() * 17)];
         }
 
