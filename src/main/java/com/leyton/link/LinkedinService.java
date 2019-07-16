@@ -2,10 +2,14 @@ package com.leyton.link;
 
 import com.leyton.link.SQLiteConnection.SqliteConnection;
 import com.opencsv.CSVWriter;
+import com.sun.xml.internal.ws.server.DefaultResourceInjector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.*;
 import java.sql.Connection;
@@ -78,7 +82,19 @@ public class LinkedinService {
         joinButton.click();
 
         // continue
-        //driver.get("https://www.linkedin.com/feed/");
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        Thread.sleep(4000);
+
+        List<WebElement> elements = driver.findElements(By.cssSelector(".neptune-grid a"));
+        if(elements.size()>0){
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".neptune-grid a")));
+            driver.findElement(By.cssSelector(".neptune-grid a")).click();
+        }
+        else{
+            driver.get("https://www.linkedin.com/feed/");
+        }
+
+
         LinkedinNumberEmployees.waitingForInfo();
         if (!driver.getCurrentUrl().contains("login")) {
             // TODO connected
@@ -95,7 +111,9 @@ public class LinkedinService {
                 String sqlQuerySelectEntreprise = "SELECT entreprise FROM dataset";
                 ResultSet resultSetEntreprise = connection.createStatement().executeQuery(sqlQuerySelectEntreprise);
                 while (resultSetEntreprise.next()) {
+
                     String companyname = resultSetEntreprise.getString(1);
+                    System.out.println("start DB :"+companyname);
                     String infos = null;
                     String nbre_total = null;
                     String nbre_research = null;
@@ -107,7 +125,7 @@ public class LinkedinService {
                         LinkedinNumberEmployees.waitingForInfo();
                         nbre_total = LinkedinNumberEmployees.getNumberEmployees(driver, companyname);
                         infos += ": NbrTotal " + nbre_total;
-                        System.out.println(nbre_total);
+                        System.out.println(infos);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -133,7 +151,7 @@ public class LinkedinService {
                     }
                     try {
                         PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryInsert);
-                        preparedStatement.setString(1, currentCompagnyName);
+                        preparedStatement.setString(1, companyname);
                         preparedStatement.setString(2, nbre_total);
                         preparedStatement.setString(3, nbre_research);
                         preparedStatement.setString(4, nbre_engineers);
