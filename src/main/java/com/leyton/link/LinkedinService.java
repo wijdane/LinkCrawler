@@ -1,12 +1,11 @@
 package com.leyton.link;
 
+import com.google.common.base.Strings;
 import com.leyton.link.SQLiteConnection.SqliteConnection;
 import com.opencsv.CSVWriter;
 import com.sun.xml.internal.ws.server.DefaultResourceInjector;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -51,7 +50,7 @@ public class LinkedinService {
     private static Connection connector;
 
 
-    public Integer createLinkedInAccount(WebDriver driver) throws InterruptedException, IOException, SQLException {
+    public Integer createLinkedInAccount(WebDriver driver) throws Exception {
         WebElement firstNameElement = null;
         WebElement lastNameElement = null;
         WebElement joinMailElement = null;
@@ -119,9 +118,16 @@ public class LinkedinService {
                     String nbre_total = null;
                     String nbre_research = null;
                     String nbre_engineers = null;
+                    String nbre_ingenieur = null;
                     //******************************Searching- Get Number of Employees*****************************
                     infos = companyname;
                     System.out.println("******************" + companyname + "*************************************");
+
+                    WebElement searchInput = driver.findElement(By.cssSelector(".nav-search-bar input"));
+                    searchInput.clear();
+                    searchInput.sendKeys(companyname);
+                    searchInput.sendKeys(Keys.ENTER);
+
                     try {
                         LinkedinNumberEmployees.waitingForInfo();
                         nbre_total = LinkedinNumberEmployees.getNumberEmployees(driver, companyname);
@@ -132,7 +138,6 @@ public class LinkedinService {
                     }
                     //**********PhD Number****************
                     try {
-                        LinkedinNumberEmployees.waitingForInfo();
                         nbre_research = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "phd");
                         infos += ", NbrPhD " + nbre_research;
                         System.out.println("PhD: " + nbre_research);
@@ -141,21 +146,35 @@ public class LinkedinService {
                     }
                     //**********Software Number****************
                     try {
-                        Thread.sleep(1000);
-                        nbre_engineers = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "software");
-                        infos += ", NbrSoftware " + nbre_engineers;
+                        nbre_ingenieur = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "ingénieur");
                         writer.write(infos);
                         writer.write("**********************************");
-                        System.out.println("Software: " + nbre_engineers);
+                        System.out.println("ingenieur : " + nbre_ingenieur);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+
+                    //**********Engineer Number****************
+                    try {
+                        nbre_engineers = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "engineer");
+                        writer.write(infos);
+                        writer.write("**********************************");
+                        System.out.println("engeneer: " + nbre_engineers);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    // check search limit
+                    if(!driver.getPageSource().contains("search-no-results__message-image") && nbre_engineers==null  && nbre_ingenieur==null && nbre_research==null && nbre_total==null){
+                        throw new Exception("Search limit problem !");
+                    }
+
                     try {
                         PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryInsert);
                         preparedStatement.setString(1, companyname);
-                        preparedStatement.setString(2, nbre_total);
-                        preparedStatement.setString(3, nbre_research);
-                        preparedStatement.setString(4, nbre_engineers);
+                        preparedStatement.setString(2, extractNumber(nbre_total));
+                        preparedStatement.setString(3, extractNumber(nbre_research));
+                        preparedStatement.setString(4, String.valueOf(parse(nbre_engineers, nbre_ingenieur)));
                         preparedStatement.execute();
                         System.out.println("Succès! (coté SQLite)");
                         Thread.sleep(277);
@@ -201,6 +220,22 @@ public class LinkedinService {
             }
             return 0;
         }
+
+    private int parse(String nbre_engineers, String nbre_ingenieur) {
+        try {
+            return Integer.parseInt(extractNumber(nbre_engineers)) + Integer.parseInt(extractNumber(nbre_ingenieur));
+        }
+        catch (Exception ex){
+            return 0;
+        }
+    }
+
+    private String extractNumber(String nbre_total) {
+        if(Strings.isNullOrEmpty(nbre_total)){
+            return "0";
+        }
+        return nbre_total.split(" ")[0];
+    }
 
     private Connection getConnector() {
         if(connector==null) {

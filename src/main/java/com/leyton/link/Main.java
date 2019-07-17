@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public class Main {
-    public static final int MAX_PROXIES = 700;
+    public static final int MAX_PROXIES = 8200;
     // csv file info
     private static LinkedinService linkedinService = new LinkedinService();
     private static ChromeDriver driver;
@@ -50,7 +50,7 @@ public class Main {
         }
     }
 
-    private static void authAndWork(String username, String password, String proxy) throws InterruptedException, IOException, SQLException {
+    private static void authAndWork(String username, String password, String proxy) throws Exception {
         // create proxy
         DesiredCapabilities capabilities = createProxy(proxy);
         driver = new ChromeDriver(capabilities);

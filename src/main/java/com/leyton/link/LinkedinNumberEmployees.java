@@ -9,16 +9,15 @@ import java.util.List;
 
 public class LinkedinNumberEmployees {
 
-    public static String getNumberEmployees(WebDriver driver, String compagnyName) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        WebElement searchInput = driver.findElement(By.cssSelector(".nav-search-bar input"));
-        searchInput.clear();
-        searchInput.sendKeys(compagnyName);
-        searchInput.sendKeys(Keys.ENTER);
+    public static final int DISTANCE_TOLERANCE = 5;
 
-        deleteFiltres(driver);
+    public static String getNumberEmployees(WebDriver driver, String compagnyName) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, 6);
 
         waitingForInfo();
+        deleteFiltres(driver);
+        waitingForInfo();
+
         String numberEmployees = null;
         numberEmployees = getNumberTotal(driver, wait, numberEmployees);
         return numberEmployees;
@@ -26,6 +25,7 @@ public class LinkedinNumberEmployees {
     }
 
     private static void deleteFiltres(WebDriver driver) throws InterruptedException {
+
         try {
             if (driver.findElement(By.cssSelector(".search-filters-bar__clear-filters")) != null) {
                 // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@data-control-name='all_filters_clear']")));
@@ -35,25 +35,31 @@ public class LinkedinNumberEmployees {
                 applyFilterElement.click();
             }
         } catch (Exception e) {
-            System.out.println("filter not cleared");
+        }
+        try {
+            if (driver.findElement(By.cssSelector(".search-advanced-facets__button--clear")) != null) {
+                // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@data-control-name='all_filters_clear']")));
+                driver.findElement(By.cssSelector(".search-advanced-facets__button--clear")).click();
+                WebElement applyFilterElement = driver.findElement(By.className("search-advanced-facets__button--apply"));
+                Thread.sleep(100);
+                applyFilterElement.click();
+            }
+        } catch (Exception e) {
         }
     }
 
     public static String getNumberEmployeesFilter(WebDriver driver, String compagnyName, String filtername) throws InterruptedException {
         String numberEmployeesPhD = null;
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 50);
-            WebElement searchInput = driver.findElement(By.cssSelector(".nav-search-bar input"));
-            searchInput.clear();
-            searchInput.sendKeys(compagnyName);
-            waitingForInfo();
-            searchInput.sendKeys(Keys.ENTER);
+            WebDriverWait wait = new WebDriverWait(driver, 6);
             waitingForInfo();
             deleteFiltres(driver);
             waitingForInfo();
             driver.findElement(By.xpath("//*[@data-control-name='all_filters']")).click();
             waitingForInfo();
-            driver.findElement(By.xpath("//*[@id=\"search-advanced-title\"]")).sendKeys(filtername);
+            WebElement titleElement = driver.findElement(By.xpath("//*[@id=\"search-advanced-title\"]"));
+            titleElement.clear();
+            titleElement.sendKeys(filtername);
             waitingForInfo();
             driver.findElement(By.xpath("//*[@data-control-name='all_filters_apply']")).click();
             numberEmployeesPhD = getStringFilter(driver, compagnyName, wait, numberEmployeesPhD);
@@ -76,10 +82,14 @@ public class LinkedinNumberEmployees {
                     Thread.sleep(100);
                     System.out.println(currentCompagnyList.get(i).getText());
                     currentCompagnyList.get(i).click();
+                    Thread.sleep(100);
                 } else {
                     System.out.println("not found");
                 }
             }
+
+            driver.findElement(By.xpath("//*[@data-control-name='all_filters_apply']")).click();
+            waitingForInfo();
 
             numberEmployees = getNumberTotal(driver, wait, numberEmployees);
         } catch (NoSuchElementException e) {
@@ -107,14 +117,13 @@ public class LinkedinNumberEmployees {
     }
 
     public static void waitingForInfo() throws InterruptedException {
-        Thread.sleep((long) (Math.random() * 2000 + 1000));
+        Thread.sleep((long) (Math.random() * 1500 + 1000));
     }
 
     private static String getNumberTotal(WebDriver driver, WebDriverWait wait, String numberEmployees) throws InterruptedException {
         waitingForInfo();
         try {
 
-            System.out.println(driver.findElement(By.className("search-results__total")).isDisplayed());
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results__total")));
             Thread.sleep(1500);
             numberEmployees = driver.findElement(By.className("search-results__total")).getText();
