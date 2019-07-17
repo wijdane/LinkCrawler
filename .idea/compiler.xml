@@ -10,5 +10,8 @@
         <module name="comleytonlinkcreator" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.leyton.linkcreator" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
