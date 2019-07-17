@@ -122,7 +122,7 @@ public class LinkedinService {
                     //******************************Searching- Get Number of Employees*****************************
                     infos = companyname;
                     System.out.println("******************" + companyname + "*************************************");
-
+                    LinkedinNumberEmployees.waitingForInfo();
                     WebElement searchInput = driver.findElement(By.cssSelector(".nav-search-bar input"));
                     searchInput.clear();
                     searchInput.sendKeys(companyname);
@@ -146,7 +146,7 @@ public class LinkedinService {
                     }
                     //**********Software Number****************
                     try {
-                        nbre_ingenieur = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "ingénieur");
+                        nbre_ingenieur = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "software");
                         writer.write(infos);
                         writer.write("**********************************");
                         System.out.println("ingenieur : " + nbre_ingenieur);
@@ -214,6 +214,9 @@ public class LinkedinService {
                     System.out.println("Fail (SELECT)!");
                     e.printStackTrace();
                 }
+                catch (NoSuchElementException | ElementNotInteractableException | ElementNotSelectableException ex){
+                    System.out.println("===> problem dom !!!");
+                 }
                 //TODO end
                 System.out.println(email + "\n" + password);
                 return 1;

@@ -14,7 +14,7 @@ public class LinkedinNumberEmployees {
     public static String getNumberEmployees(WebDriver driver, String compagnyName) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 3);
 
-        waitingForInfo();
+        Thread.sleep(500);
         deleteFiltres(driver);
         waitingForInfo();
 
@@ -117,11 +117,11 @@ public class LinkedinNumberEmployees {
     }
 
     public static void waitingForInfo() throws InterruptedException {
-        Thread.sleep((long) (Math.random() * 1500 + 1000));
+        Thread.sleep((long) (Math.random() * 2000 + 1000));
     }
 
     private static String getNumberTotal(WebDriver driver, WebDriverWait wait, String numberEmployees) throws InterruptedException {
-        waitingForInfo();
+        Thread.sleep(500);
         try {
 
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results__total")));
