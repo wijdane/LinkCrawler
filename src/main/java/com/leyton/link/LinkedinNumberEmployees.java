@@ -71,7 +71,7 @@ public class LinkedinNumberEmployees {
 
     private static String getStringFilter(WebDriver driver, String compagnyName, WebDriverWait wait, String numberEmployees) throws InterruptedException {
         try {
-            waitingForInfo();
+            Thread.sleep(100);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-filters-bar__all-filters")));
             WebElement formElement = driver.findElement(By.className("search-filters-bar__all-filters"));
             formElement.click();
@@ -108,7 +108,7 @@ public class LinkedinNumberEmployees {
     }
 
     public static boolean containsIgnoreCase(String s1, String s2) {
-        return s1.toLowerCase().contains(s2.toLowerCase());
+        return s1.toLowerCase().contains(s2.toLowerCase()) || s2.toLowerCase().contains(s1.toLowerCase()) ;
     }
 
     public static String removeDiacriticalMarks(String string) {
@@ -125,7 +125,7 @@ public class LinkedinNumberEmployees {
         try {
 
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results__total")));
-            Thread.sleep(1500);
+            Thread.sleep(500);
             numberEmployees = driver.findElement(By.className("search-results__total")).getText();
         }
         catch (Exception ex){

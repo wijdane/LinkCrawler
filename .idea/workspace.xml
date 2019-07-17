@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="Some changes FD*">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/WordDistance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkedInData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/linkedInData.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linkedinCN" beforeDir="false" afterPath="$PROJECT_DIR$/linkedinCN" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/datasource/proxies.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/datasource/proxies.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinNumberEmployees.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinNumberEmployees.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/datasource/proxies.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/datasource/proxies.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="-388">
               <caret line="148" column="80" selection-start-line="148" selection-start-column="80" selection-end-line="148" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -123,8 +113,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+            <state relative-caret-position="178">
+              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
             </state>
           </provider>
         </entry>
@@ -235,7 +225,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1058" />
     <option name="y" value="276" />
     <option name="width" value="800" />
@@ -504,7 +494,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92573000" />
+    <option name="totallyTimeSpent" value="93901000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -519,7 +509,7 @@
     <frame x="0" y="24" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26451612" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26451612" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -528,20 +518,20 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Database Console" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32859176" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32859176" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32859176" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4167852" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4167852" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32859176" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="SonarLint" order="9" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32859176" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32859176" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24903226" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.1316129" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.13032258" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Data View" order="5" />
@@ -553,6 +543,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -609,18 +609,6 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java</url>
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -825,30 +813,6 @@
         <state relative-caret-position="-147305" />
       </provider>
     </entry>
-    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_master">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-          <filtering>
-            <filter text="" />
-          </filtering>
-          <column-attributes>
-            <column name="rowid" enabled="false" position="-1" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_sequence">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-          <filtering>
-            <filter text="" />
-          </filtering>
-          <column-attributes>
-            <column name="rowid" enabled="false" position="-1" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/datasource/namecompagny.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-42185" />
@@ -862,15 +826,6 @@
       </provider>
     </entry>
     <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/dataset">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/linkedCN">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
           <filtering>
@@ -897,9 +852,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/linkedCN">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_master">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
+          <filtering>
+            <filter text="" />
+          </filtering>
+          <column-attributes>
+            <column name="rowid" enabled="false" position="-1" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_sequence">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
+          <filtering>
+            <filter text="" />
+          </filtering>
+          <column-attributes>
+            <column name="rowid" enabled="false" position="-1" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
+        <state relative-caret-position="-388">
           <caret line="148" column="80" selection-start-line="148" selection-start-column="80" selection-end-line="148" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -911,8 +899,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+        <state relative-caret-position="178">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
         </state>
       </provider>
     </entry>
