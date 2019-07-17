@@ -12,7 +12,7 @@ public class LinkedinNumberEmployees {
     public static final int DISTANCE_TOLERANCE = 5;
 
     public static String getNumberEmployees(WebDriver driver, String compagnyName) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 6);
+        WebDriverWait wait = new WebDriverWait(driver, 3);
 
         waitingForInfo();
         deleteFiltres(driver);
@@ -51,7 +51,7 @@ public class LinkedinNumberEmployees {
     public static String getNumberEmployeesFilter(WebDriver driver, String compagnyName, String filtername) throws InterruptedException {
         String numberEmployeesPhD = null;
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 6);
+            WebDriverWait wait = new WebDriverWait(driver, 3);
             waitingForInfo();
             deleteFiltres(driver);
             waitingForInfo();
