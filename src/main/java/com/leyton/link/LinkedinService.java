@@ -136,57 +136,66 @@ public class LinkedinService {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    //**********PhD Number****************
-                    try {
-                        nbre_research = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "phd");
-                        infos += ", NbrPhD " + nbre_research;
-                        System.out.println("PhD: " + nbre_research);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if (nbre_total == null) {
+                        nbre_engineers = null;
+                        nbre_ingenieur = null;
+                        nbre_research = null;
+
                     }
-                    //**********Software Number****************
-                    try {
-                        nbre_ingenieur = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "software");
-                        writer.write(infos);
-                        writer.write("**********************************");
-                        System.out.println("ingenieur : " + nbre_ingenieur);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    else {
+                        //**********PhD Number****************
+                        try {
+                            nbre_research = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "phd");
+                            infos += ", NbrPhD " + nbre_research;
+                            System.out.println("PhD: " + nbre_research);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        //**********Software Number****************
+                        try {
+                            nbre_ingenieur = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "software");
+                            writer.write(infos);
+                            writer.write("**********************************");
+                            System.out.println("ingenieur : " + nbre_ingenieur);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        //**********Engineer Number****************
+                        try {
+                            nbre_engineers = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "engineer");
+                            writer.write(infos);
+                            writer.write("**********************************");
+                            System.out.println("engeneer: " + nbre_engineers);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
 
-                    //**********Engineer Number****************
-                    try {
-                        nbre_engineers = LinkedinNumberEmployees.getNumberEmployeesFilter(driver, companyname, "engineer");
-                        writer.write(infos);
-                        writer.write("**********************************");
-                        System.out.println("engeneer: " + nbre_engineers);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        // check search limit
+                        if (!driver.getPageSource().contains("search-no-results__message-image") && nbre_engineers == null && nbre_ingenieur == null && nbre_research == null && nbre_total == null) {
+                            throw new Exception("Search limit problem !");
+                        }
+
+                        try {
+                            PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryInsert);
+                            preparedStatement.setString(1, companyname);
+                            preparedStatement.setString(2, extractNumber(nbre_total));
+                            preparedStatement.setString(3, extractNumber(nbre_research));
+                            preparedStatement.setString(4, String.valueOf(parse(nbre_engineers, nbre_ingenieur)));
+                            preparedStatement.execute();
+                            System.out.println("Succès! (coté SQLite)");
+                            Thread.sleep(277);
+                            PreparedStatement st = connection.prepareStatement("DELETE FROM dataset WHERE entreprise = ?");
+                            st.setString(1, companyname);
+                            st.executeUpdate();
+                            System.out.println("Suppression est faite avec succès !");
+                        } catch (SQLException e) {
+                            System.out.println("Fail! (coté SQLite)");
+                            e.printStackTrace();
+                        }
                     }
 
-                    // check search limit
-                    if(!driver.getPageSource().contains("search-no-results__message-image") && nbre_engineers==null  && nbre_ingenieur==null && nbre_research==null && nbre_total==null){
-                        throw new Exception("Search limit problem !");
-                    }
-
-                    try {
-                        PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryInsert);
-                        preparedStatement.setString(1, companyname);
-                        preparedStatement.setString(2, extractNumber(nbre_total));
-                        preparedStatement.setString(3, extractNumber(nbre_research));
-                        preparedStatement.setString(4, String.valueOf(parse(nbre_engineers, nbre_ingenieur)));
-                        preparedStatement.execute();
-                        System.out.println("Succès! (coté SQLite)");
-                        Thread.sleep(277);
-                        PreparedStatement st = connection.prepareStatement("DELETE FROM dataset WHERE entreprise = ?");
-                        st.setString(1, companyname);
-                        st.executeUpdate();
-                        System.out.println("Suppression est faite avec succès !");
-                    } catch (SQLException e) {
-                        System.out.println("Fail! (coté SQLite)");
-                        e.printStackTrace();
-                    }
-                }
             }
                 System.out.println("Clear array");
                 name_compagny.clear();

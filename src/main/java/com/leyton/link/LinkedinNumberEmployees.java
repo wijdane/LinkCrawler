@@ -91,7 +91,7 @@ public class LinkedinNumberEmployees {
             driver.findElement(By.xpath("//*[@data-control-name='all_filters_apply']")).click();
             waitingForInfo();
 
-            numberEmployees = getNumberTotal(driver, wait, numberEmployees);
+
         } catch (NoSuchElementException e) {
             WebElement introuvable = driver.findElement(By.className("search-no-results__container"));
             WebElement nosearch = introuvable.findElement(By.className("t-20"));
@@ -103,6 +103,12 @@ public class LinkedinNumberEmployees {
             }
         } catch (ElementClickInterceptedException e) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.className("search-filters-bar__all-filters")));
+        }
+        catch (Exception ex){
+
+        }
+        finally {
+            numberEmployees = getNumberTotal(driver, wait, numberEmployees);
         }
         return numberEmployees;
     }
