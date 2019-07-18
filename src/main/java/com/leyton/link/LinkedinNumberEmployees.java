@@ -122,6 +122,7 @@ public class LinkedinNumberEmployees {
 
     private static String getNumberTotal(WebDriver driver, WebDriverWait wait, String numberEmployees) throws InterruptedException {
         Thread.sleep(500);
+        numberEmployees = null;
         try {
 
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("search-results__total")));
