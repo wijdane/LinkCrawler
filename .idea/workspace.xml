@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="Some changes FD*">
-      <change beforePath="$PROJECT_DIR$/linkedInData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/linkedInData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1f97bab1-66cc-42af-883b-67376f4fa4b6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1f97bab1-66cc-42af-883b-67376f4fa4b6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linkedinCN" beforeDir="false" afterPath="$PROJECT_DIR$/linkedinCN" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinNumberEmployees.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinNumberEmployees.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/leyton/link/LinkedinService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,71 +54,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="734">
+              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="95" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="95" />
+            <state relative-caret-position="2322">
+              <caret line="144" selection-start-line="144" selection-end-line="144" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12589#12590#0" expanded="true" />
-                <element signature="e#12690#12691#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/4.0.0-alpha-1/selenium-api-4.0.0-alpha-1.jar!/org/openqa/selenium/ElementNotInteractableException.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/SQLiteConnection/FeedDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/4.0.0-alpha-1/selenium-api-4.0.0-alpha-1.jar!/org/openqa/selenium/NoSuchElementException.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="540">
+              <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/linkedCN">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-              <filtering>
-                <filter text="" />
-              </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/4.0.0-alpha-1/selenium-api-4.0.0-alpha-1.jar!/org/openqa/selenium/ElementNotVisibleException.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="79" column="66" lean-forward="true" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
+            <state relative-caret-position="115">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
             </state>
           </provider>
         </entry>
@@ -223,71 +195,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="link" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="link" type="462c0819:PsiDirectoryNode" />
-              <item name="SQLiteConnection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinkCreator-masterV1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinkCreator-masterV1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="datasource" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -454,6 +364,7 @@
       <workItem from="1563284422260" duration="11000" />
       <workItem from="1563294638464" duration="242000" />
       <workItem from="1563336381293" duration="4359000" />
+      <workItem from="1563452651026" duration="277000" />
     </task>
     <task id="LOCAL-00001" summary="Some changes FD">
       <created>1562238275316</created>
@@ -480,7 +391,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100399000" />
+    <option name="totallyTimeSpent" value="101016000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -495,14 +406,15 @@
     <frame x="0" y="24" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26451612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26774195" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Database Console" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32859176" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32859176" />
@@ -515,13 +427,15 @@
       <window_info anchor="bottom" id="SonarLint" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32859176" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32859176" />
+      <window_info anchor="bottom" id="Database Console" order="12" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24903226" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.12967741" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Data View" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.17096774" />
+      <window_info anchor="right" id="Database" order="6" weight="0.17096774" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -761,13 +675,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/38116eea-c038-4a77-9880-a2c18d260cc9/console.sql" />
     <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/linkedcn" />
     <entry file="jar://$USER_HOME$/Programs/jdk1.8.0_211/src.zip!/java/sql/ResultSet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/datasource/proxies.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/4.0.0-alpha-1/selenium-support-4.0.0-alpha-1.jar!/org/openqa/selenium/support/ui/Wait.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -811,13 +718,6 @@
         <state relative-caret-position="-42185" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/WordDistance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-84">
@@ -829,57 +729,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_master">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-          <filtering>
-            <filter text="" />
-          </filtering>
-          <column-attributes>
-            <column name="rowid" enabled="false" position="-1" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_sequence">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-          <filtering>
-            <filter text="" />
-          </filtering>
-          <column-attributes>
-            <column name="rowid" enabled="false" position="-1" />
-          </column-attributes>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/SQLiteConnection/FeedDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/dataset">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_master" />
+    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/sqlite_sequence" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/4.0.0-alpha-1/selenium-api-4.0.0-alpha-1.jar!/org/openqa/selenium/ElementNotVisibleException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="79" column="66" lean-forward="true" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -897,24 +752,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/linkedCN" />
+    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/dataset" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="95" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="95" />
+        <state relative-caret-position="2322">
+          <caret line="144" selection-start-line="144" selection-end-line="144" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12589#12590#0" expanded="true" />
-            <element signature="e#12690#12691#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://1f97bab1-66cc-42af-883b-67376f4fa4b6/schema/main/table/linkedCN">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="dee69048-bddd-4b80-b171-36ac89e030ef">
-          <filtering>
-            <filter text="" />
-          </filtering>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/SQLiteConnection/FeedDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="734">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinNumberEmployees.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
       </provider>
     </entry>

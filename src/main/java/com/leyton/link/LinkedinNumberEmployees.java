@@ -62,7 +62,7 @@ public class LinkedinNumberEmployees {
             titleElement.sendKeys(filtername);
             waitingForInfo();
             driver.findElement(By.xpath("//*[@data-control-name='all_filters_apply']")).click();
-            numberEmployeesPhD = getStringFilter(driver, compagnyName, wait, numberEmployeesPhD);
+            numberEmployeesPhD = getNumberTotal(driver, wait, numberEmployeesPhD);
         } catch (Exception e) {
             //e.printStackTrace();
         }
