@@ -162,13 +162,13 @@ public class LinkedinService {
                             e.printStackTrace();
                         }
 
-
-                        // check search limit
-                        if (!driver.getPageSource().contains("search-no-results__message-image") && nbre_engineers == null && nbre_ingenieur == null && nbre_research == null && nbre_total == null) {
-                            throw new Exception("Search limit problem !");
-                        }
                     }
                     try {
+                        // check search limit
+                        if (driver.getPageSource().toLowerCase().contains("search limit") && nbre_engineers == null && nbre_ingenieur == null && nbre_research == null && nbre_total == null) {
+                            throw new Exception("Search limit problem !");
+                        }
+
                         PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryInsert);
                         preparedStatement.setString(1, companyname);
                         preparedStatement.setString(2, nbre_total);
