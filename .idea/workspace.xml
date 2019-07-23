@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b9ff68e9-67f5-4ede-b7c6-e424cb5b1ec6" name="Default Changelist" comment="synch data">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,20 +68,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+            <state relative-caret-position="330">
+              <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="127" column="12" lean-forward="true" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="44" />
+            <state relative-caret-position="294">
+              <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,8 +166,8 @@
         <option value="$PROJECT_DIR$/../Capgemini Alumni Network _ Groupes _ LinkedIn.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/MainTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java" />
       </list>
     </option>
   </component>
@@ -424,7 +423,7 @@
       <workItem from="1563489883801" duration="15651000" />
       <workItem from="1563523367952" duration="422000" />
       <workItem from="1563549402162" duration="687000" />
-      <workItem from="1563811489900" duration="14933000" />
+      <workItem from="1563811489900" duration="15668000" />
     </task>
     <task id="LOCAL-00001" summary="Some changes FD">
       <created>1562238275316</created>
@@ -472,7 +471,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132155000" />
+    <option name="totallyTimeSpent" value="132890000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -906,16 +905,6 @@ driver.findElements(By.cssSelector(&quot;.search-vertical-filter__filter-item .s
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="127" column="12" lean-forward="true" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -928,8 +917,18 @@ driver.findElements(By.cssSelector(&quot;.search-vertical-filter__filter-item .s
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+        <state relative-caret-position="330">
+          <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/leyton/link/LinkedinService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

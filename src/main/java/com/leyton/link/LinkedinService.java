@@ -73,41 +73,31 @@ public class LinkedinService {
         ResultSet resultSetEntreprise = DbUtils.getData();
         boolean companyFilterSelected = false;
         while (resultSetEntreprise.next()) {
+            try {
+
                 String companyname = resultSetEntreprise.getString(1);
 
                 String nbre_total = null;
                 String nbre_research = null;
                 String nbre_ingenieur = null;
 
-                try {
-                    waitElement(driver,NAV_SEARCH_BAR_INPUT);
-                    WebElement searchInput = driver.findElement(By.cssSelector(NAV_SEARCH_BAR_INPUT));
-                    searchInput.clear();
-                    searchInput.sendKeys(companyname);
-                    searchInput.sendKeys(Keys.ENTER);
 
-                    selectCompany(driver);
+                searchForCompany(driver, companyname);
 
-                    waitElement(driver,COMPANY_SELECTOR);
+                selectCompany(driver);
 
-                    List<WebElement> companies = driver.findElements(By.cssSelector(COMPANY_SELECTOR));
+                waitElement(driver,COMPANY_SELECTOR);
 
-                    if(companies.size()>0){
+                List<WebElement> companies = driver.findElements(By.cssSelector(COMPANY_SELECTOR));
 
-                        companies.get(0).click();
+                if(companies.size()>0){
+
+                    nbre_total = getCompanyEmployees(driver, companies);
+                    System.out.println(companyname+" ==> "+ nbre_total);
+                }
 
 
-                        waitElement(driver, NUMBER_EMPLOYEES_SELECTOR);
-
-                        nbre_total = driver.findElement(By.cssSelector(NUMBER_EMPLOYEES_SELECTOR)).getText();
-                        System.out.println(companyname+" ==> "+ nbre_total);
-                    }
-
-
-
-
-
-                    DbUtils.saveToDB(companyname, nbre_total, nbre_research, nbre_ingenieur);
+                DbUtils.saveToDB(companyname, nbre_total, nbre_research, nbre_ingenieur);
 
                 }catch (SQLException e) {
                         System.out.println("Fail SQL !");
@@ -127,6 +117,25 @@ public class LinkedinService {
             }
             // return true mean work is done
             return true;
+    }
+
+    private String getCompanyEmployees(WebDriver driver, List<WebElement> companies) throws InterruptedException {
+        String nbre_total;
+        companies.get(0).click();
+
+
+        waitElement(driver, NUMBER_EMPLOYEES_SELECTOR);
+
+        nbre_total = driver.findElement(By.cssSelector(NUMBER_EMPLOYEES_SELECTOR)).getText();
+        return nbre_total;
+    }
+
+    private void searchForCompany(WebDriver driver, String companyname) throws InterruptedException {
+        waitElement(driver,NAV_SEARCH_BAR_INPUT);
+        WebElement searchInput = driver.findElement(By.cssSelector(NAV_SEARCH_BAR_INPUT));
+        searchInput.clear();
+        searchInput.sendKeys(companyname);
+        searchInput.sendKeys(Keys.ENTER);
     }
 
     private boolean selectCompany(WebDriver driver)  {
