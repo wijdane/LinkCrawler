@@ -71,11 +71,12 @@ public class LinkedinService {
         waitElement(driver,null);
             //-----------------------------Load Names From CSV-----------------------
         ResultSet resultSetEntreprise = DbUtils.getData();
-        boolean companyFilterSelected = false;
+        int notFoundCompaniesNumber = 0;
         while (resultSetEntreprise.next()) {
             try {
 
                 String companyname = resultSetEntreprise.getString(1);
+                notFoundCompaniesNumber++;
 
                 String nbre_total = null;
                 String nbre_research = null;
@@ -96,7 +97,12 @@ public class LinkedinService {
                     System.out.println(companyname+" ==> "+ nbre_total);
                 }
 
+                // if there is probleme in search open new session
+                if(notFoundCompaniesNumber>10){
+                    return false;
+                }
 
+                notFoundCompaniesNumber=0;
                 DbUtils.saveToDB(companyname, nbre_total, nbre_research, nbre_ingenieur);
 
                 }catch (SQLException e) {
