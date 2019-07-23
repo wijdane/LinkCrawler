@@ -48,6 +48,7 @@ public class Main {
                    boolean accountCreated = linkedinService.createLinkedInAccount(driver);
 
                    // search for companies
+                    // return true mean work is done
                     if(linkedinService.searchForCompanies(driver)){
                         // work done ! dataset empty
                         return;

@@ -120,11 +120,12 @@ public class LinkedinService {
                 }
                 catch (Exception ex){
                     System.out.println("fatal Exception :"+ex);
+                    // return false mean open new session
                     return false;
                 }
 
             }
-
+            // return true mean work is done
             return true;
     }
 
