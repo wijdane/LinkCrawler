@@ -18,6 +18,7 @@ public class LinkedinService {
     public static final String COMPANIES_SELECTOR = ".search-vertical-filter__filter-item .search-vertical-filter__dropdown-list-item-button--COMPANIES";
     public static final String COMPANY_SELECTOR = ".search-results__list li a";
     public static final String NUMBER_EMPLOYEES_SELECTOR = ".link-without-visited-state span";
+    public static int MAX_TRY_NUMBER = 10;
 
 
     public boolean createLinkedInAccount(WebDriver driver) throws Exception {
@@ -91,14 +92,16 @@ public class LinkedinService {
 
                 List<WebElement> companies = driver.findElements(By.cssSelector(COMPANY_SELECTOR));
 
-                if(companies.size()>0){
-
-                    nbre_total = getCompanyEmployees(driver, companies);
-                    System.out.println(companyname+" ==> "+ nbre_total);
+                if(companies.size()==0) {
+                    break;
                 }
 
+                nbre_total = getCompanyEmployees(driver, companies);
+                System.out.println(companyname+" ==> "+ nbre_total);
+
                 // if there is probleme in search open new session
-                if(notFoundCompaniesNumber>10){
+                if(notFoundCompaniesNumber> MAX_TRY_NUMBER){
+                    MAX_TRY_NUMBER+=5;
                     return false;
                 }
 
@@ -127,12 +130,18 @@ public class LinkedinService {
 
     private String getCompanyEmployees(WebDriver driver, List<WebElement> companies) throws InterruptedException {
         String nbre_total;
-        companies.get(0).click();
+
+        try {
+            companies.get(0).click();
 
 
-        waitElement(driver, NUMBER_EMPLOYEES_SELECTOR);
+            waitElement(driver, NUMBER_EMPLOYEES_SELECTOR);
 
-        nbre_total = driver.findElement(By.cssSelector(NUMBER_EMPLOYEES_SELECTOR)).getText();
+            nbre_total = driver.findElement(By.cssSelector(NUMBER_EMPLOYEES_SELECTOR)).getText();
+        }
+        catch (Exception ex){
+            return null;
+        }
         return nbre_total;
     }
 
@@ -145,10 +154,11 @@ public class LinkedinService {
     }
 
     private boolean selectCompany(WebDriver driver)  {
+        List<WebElement> filterButtons = null;
         try {
             waitElement(driver, SEARCH_VERTICAL_DROPDOWN);
 
-            List<WebElement> filterButtons = driver.findElements(By.cssSelector(SEARCH_VERTICAL_DROPDOWN));
+            filterButtons = driver.findElements(By.cssSelector(SEARCH_VERTICAL_DROPDOWN));
             filterButtons.get(filterButtons.size() - 1).click();
 
 
@@ -156,6 +166,10 @@ public class LinkedinService {
 
             driver.findElement(By.cssSelector(COMPANIES_SELECTOR)).click();
         }catch (Exception ex){
+            // close model
+            if(filterButtons!=null && filterButtons.size()>0){
+                filterButtons.get(filterButtons.size() - 1).click();
+            }
             return false;
         }
 
