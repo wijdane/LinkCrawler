@@ -2,6 +2,7 @@ package com.leyton.link;
 
 import com.opencsv.CSVReader;
 import org.openqa.selenium.Proxy;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -10,7 +11,6 @@ import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 import java.util.List;
 
 
@@ -22,10 +22,10 @@ public class Main {
     private static int count = 0;
 
     public static void main(String[] args) throws AWTException, InterruptedException, IOException {
-        String home = System.getProperty("user.home");
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
-        System.setProperty("webdriver.firefox.marionette", "src/main/resources/drivers/geckodriver");
+        declareDrivers();
+
         String fileName = "src/main/resources/datasource/proxies.csv";
+
         try (FileInputStream fis = new FileInputStream(fileName);
              InputStreamReader isr = new InputStreamReader(fis);
              CSVReader reader = new CSVReader(isr, ':')) {
@@ -42,21 +42,37 @@ public class Main {
                     if (driver != null) {
                         driver.quit();
                     }
-                    authAndWork(username, password, proxy);
+                    // authentication
+                   driver = (ChromeDriver) authenticateToProxy(username, password, proxy);
+                    // create linkedin account
+                   boolean accountCreated = linkedinService.createLinkedInAccount(driver);
+
+                   // search for companies
+                    if(linkedinService.searchForCompanies(driver)){
+                        // work done ! dataset empty
+                        return;
+                    }
+
                 } catch (Exception ex) {
                     System.out.println("Error : other window will be created." + ex);
+                    return;
                 }
             } while (true);
         }
     }
 
-    private static void authAndWork(String username, String password, String proxy) throws Exception {
+    public static void declareDrivers() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+        System.setProperty("webdriver.firefox.marionette", "src/main/resources/drivers/geckodriver");
+    }
+
+    private static WebDriver authenticateToProxy(String username, String password, String proxy) throws Exception {
         // create proxy
         DesiredCapabilities capabilities = createProxy(proxy);
-        driver = new ChromeDriver(capabilities);
+        WebDriver driver = new ChromeDriver(capabilities);
         authentification(username, password);
         waitingForInfo();
-        count += linkedinService.createLinkedInAccount(driver);
+        return driver;
     }
 
     private static void authentification(final String username, final String password) {
