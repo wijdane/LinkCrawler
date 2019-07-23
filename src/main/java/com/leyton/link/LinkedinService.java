@@ -93,7 +93,8 @@ public class LinkedinService {
                 List<WebElement> companies = driver.findElements(By.cssSelector(COMPANY_SELECTOR));
 
                 if(companies.size()==0) {
-                    break;
+                    DbUtils.deleteCompany(companyname,DbUtils.getConnector());
+                    continue;
                 }
 
                 nbre_total = getCompanyEmployees(driver, companies);
@@ -178,21 +179,10 @@ public class LinkedinService {
 
     private void waitElement(WebDriver driver, String element) throws InterruptedException{
         if(element!=null) {
-            WebDriverWait wait = new WebDriverWait(driver, 6);
+            WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element)));
         }
         randomWait();
-    }
-
-    private WebElement getSelectedElement(List<WebElement> list,WebDriver driver) {
-
-        for(WebElement selectable : list){
-            WebElement webElement = list.get(0);
-            if(LinkUtils.isCompany(webElement.getText())){
-                return webElement;
-            }
-        }
-        return null;
     }
 
     public static void randomWait(){

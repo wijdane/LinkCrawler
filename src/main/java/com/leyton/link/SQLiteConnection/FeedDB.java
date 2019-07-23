@@ -19,7 +19,7 @@ public class FeedDB {
 
         List<List<String>> name_compagny = new ArrayList<>();
         try {
-            try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/datasource/namecompagny.csv"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/datasource/testcompanies.csv"))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     String[] values = line.split(",");

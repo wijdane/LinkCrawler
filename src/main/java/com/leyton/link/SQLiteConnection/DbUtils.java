@@ -15,7 +15,7 @@ public class DbUtils {
     public static final String SELECT_ENTREPRISE_FROM_DATASET = "SELECT entreprise FROM dataset";
 
 
-    private static Connection getConnector() {
+    public static Connection getConnector() {
         if(connector==null) {
             connector = SqliteConnection.Connector();
         }
@@ -32,6 +32,10 @@ public class DbUtils {
         preparedStatement.execute();
         System.out.println("Succès! (coté SQLite)");
         Thread.sleep(277);
+        deleteCompany(companyname,connection);
+    }
+
+    public static void deleteCompany(String companyname, Connection connection) throws SQLException {
         PreparedStatement st = connection.prepareStatement("DELETE FROM dataset WHERE entreprise = ?");
         st.setString(1, companyname);
         st.executeUpdate();
