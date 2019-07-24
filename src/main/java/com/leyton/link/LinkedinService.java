@@ -53,7 +53,7 @@ public class LinkedinService {
         joinButton.click();
 
         // continue
-        WebDriverWait wait = new WebDriverWait(driver, 100);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         Thread.sleep(4000);
 
         List<WebElement> elements = driver.findElements(By.cssSelector(".neptune-grid a"));
@@ -74,9 +74,10 @@ public class LinkedinService {
         ResultSet resultSetEntreprise = DbUtils.getData();
         int notFoundCompaniesNumber = 0;
         while (resultSetEntreprise.next()) {
+            String companyname = null;
             try {
 
-                String companyname = resultSetEntreprise.getString(1);
+                companyname = resultSetEntreprise.getString(1);
                 notFoundCompaniesNumber++;
 
                 String nbre_total = null;

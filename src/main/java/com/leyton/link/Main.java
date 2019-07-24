@@ -49,14 +49,14 @@ public class Main {
 
                    // search for companies
                     // return true mean work is done
-                    if(linkedinService.searchForCompanies(driver)){
+                    if(accountCreated && linkedinService.searchForCompanies(driver)){
                         // work done ! dataset empty
+                        System.out.println("all work done !");
                         return;
                     }
 
                 } catch (Exception ex) {
-                    System.out.println("Error : other window will be created." + ex);
-                    return;
+                    System.out.println("Error : other session will be created." + ex);
                 }
             } while (true);
         }
