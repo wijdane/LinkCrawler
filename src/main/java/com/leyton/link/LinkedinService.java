@@ -15,9 +15,16 @@ public class LinkedinService {
     // class variable
     public static final String NAV_SEARCH_BAR_INPUT = ".nav-search-bar input";
     public static final String SEARCH_VERTICAL_DROPDOWN = ".search-vertical-filter__filter-item";
+    public static final String SEARCH_VERTICAL_DROPDOWN_LOCATION = ".search-s-facet search-s-facet--geoRegion flex-shrink-zero inline-block search-s-facet--is-closed ember-view";
     public static final String COMPANIES_SELECTOR = ".search-vertical-filter__filter-item .search-vertical-filter__dropdown-list-item-button--COMPANIES";
     public static final String COMPANY_SELECTOR = ".search-results__list li a";
+
+    public static final String SEARCH_BASIC_TYPEAHEAD_SEARCH_VERTICAL_TYPEAHEAD_EMBER_VIEW_INPUT = ".search-s-facet__values search-s-facet__values--geoRegion input";
     public static final String NUMBER_EMPLOYEES_SELECTOR = ".link-without-visited-state span";
+    public static final String SEARCH_FILTERS_BAR_ALL_FILTERS = ".search-filters-bar__all-filters";
+    public static final String SEARCH_TYPEAHEAD_V2_HIT = ".search-typeahead-v2__hit";
+    public static final String SEARCH_ADVANCED_FACETS_BUTTON_APPLY = ".search-advanced-facets__button--apply";
+    public static final String SEARCH_RESULTS_TOTAL = ".search-results__total";
     public static int MAX_TRY_NUMBER = 10;
 
 
@@ -97,8 +104,7 @@ public class LinkedinService {
                     DbUtils.deleteCompany(companyname,DbUtils.getConnector());
                     continue;
                 }
-
-                nbre_total = getCompanyEmployees(driver, companies);
+                nbre_total = selectCompanyLocation(driver, companies,"France");
                 System.out.println(companyname+" ==> "+ nbre_total);
 
                 // if there is probleme in search open new session
@@ -130,21 +136,55 @@ public class LinkedinService {
             return true;
     }
 
-    private String getCompanyEmployees(WebDriver driver, List<WebElement> companies) throws InterruptedException {
-        String nbre_total;
+    private String selectCompanyLocation(WebDriver driver,List<WebElement> companies, String location) throws InterruptedException {
 
+        String  total_of_emplyees= null;
         try {
             companies.get(0).click();
-
-
             waitElement(driver, NUMBER_EMPLOYEES_SELECTOR);
+            WebElement see_details=driver.findElement(By.cssSelector(NUMBER_EMPLOYEES_SELECTOR));
+            System.out.println("website Or link "+see_details.getText());
+            if(!see_details.getText().contains("http://")) {
+                see_details.click();
+                System.out.println("location: ----***--");
+                //LOCATION_SELECTORThread.sleep(3000);
+                waitElement(driver, SEARCH_FILTERS_BAR_ALL_FILTERS);
+                WebElement all_filters = driver.findElement(By.cssSelector(SEARCH_FILTERS_BAR_ALL_FILTERS));
+                all_filters.click();
+                WebDriverWait wait=new WebDriverWait(driver,30);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[3]/div/div/div[2]/div/div[1]/ul/li[3]/form/div/fieldset/ol/li[1]/div/div/input")));
+                WebElement addLocation=driver.findElement(By.xpath("/html/body/div[3]/div/div/div[2]/div/div[1]/ul/li[3]/form/div/fieldset/ol/li[1]/div/div/input"));
+                //waitElement(driver, SEARCH_BASIC_TYPEAHEAD_SEARCH_VERTICAL_TYPEAHEAD_EMBER_VIEW_INPUT);
+                //WebElement addLocation = driver.findElement(By.cssSelector(SEARCH_BASIC_TYPEAHEAD_SEARCH_VERTICAL_TYPEAHEAD_EMBER_VIEW_INPUT));
+                addLocation.sendKeys(location);
+                //search-typeahead-v2__hit
+                waitElement(driver, SEARCH_TYPEAHEAD_V2_HIT);
+                List<WebElement> france = driver.findElements(By.cssSelector(SEARCH_TYPEAHEAD_V2_HIT));
+                System.out.println("************* " + france.size());
+                france.get(0).click();
+                //search-advanced-facets__button--apply
+                waitElement(driver, SEARCH_ADVANCED_FACETS_BUTTON_APPLY);
+                WebElement apply = driver.findElement(By.cssSelector(SEARCH_ADVANCED_FACETS_BUTTON_APPLY));
+                apply.click();
+                Thread.sleep(3000);
+                //search-results__total
+                if (driver.findElements(By.className("t-20")).size() > 0) {
+                    System.out.println("");
+                    List<WebElement> not_found = driver.findElements(By.className("t-20"));
+                    System.out.println(not_found.get(1).getText());
+                } else {
+                    waitElement(driver, SEARCH_RESULTS_TOTAL);
+                    WebElement numberTotal = driver.findElement(By.cssSelector(SEARCH_RESULTS_TOTAL));
+                    total_of_emplyees = numberTotal.getText();
+                    System.out.println(numberTotal.getText());
+                }
+            }
 
-            nbre_total = driver.findElement(By.cssSelector(NUMBER_EMPLOYEES_SELECTOR)).getText();
+        }catch (Exception ex){
+            // close model
         }
-        catch (Exception ex){
-            return null;
-        }
-        return nbre_total;
+
+        return total_of_emplyees;
     }
 
     private void searchForCompany(WebDriver driver, String companyname) throws InterruptedException {
@@ -159,7 +199,6 @@ public class LinkedinService {
         List<WebElement> filterButtons = null;
         try {
             waitElement(driver, SEARCH_VERTICAL_DROPDOWN);
-
             filterButtons = driver.findElements(By.cssSelector(SEARCH_VERTICAL_DROPDOWN));
             filterButtons.get(filterButtons.size() - 1).click();
 
@@ -177,6 +216,7 @@ public class LinkedinService {
 
         return true;
     }
+
 
     private void waitElement(WebDriver driver, String element) throws InterruptedException{
         if(element!=null) {

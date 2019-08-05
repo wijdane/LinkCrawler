@@ -25,8 +25,8 @@ public class MainTest {
 
         WebElement button = driver.findElement(By.cssSelector(LOGIN_FORM_ACTION_CONTAINER_BUTTON));
 
-        username.sendKeys("elmottaki@gmail.com");
-        password.sendKeys("");
+        username.sendKeys("wijdane.oudli@gmail.com");
+        password.sendKeys("goalwijdane");
 
         LinkedinService linkedinService = new LinkedinService();
 
@@ -35,9 +35,6 @@ public class MainTest {
         button.click();
 
         linkedinService.searchForCompanies(driver);
-
-
-
 
     }
 
