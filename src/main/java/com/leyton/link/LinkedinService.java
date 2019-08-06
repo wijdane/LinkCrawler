@@ -15,11 +15,9 @@ public class LinkedinService {
     // class variable
     public static final String NAV_SEARCH_BAR_INPUT = ".nav-search-bar input";
     public static final String SEARCH_VERTICAL_DROPDOWN = ".search-vertical-filter__filter-item";
-    public static final String SEARCH_VERTICAL_DROPDOWN_LOCATION = ".search-s-facet search-s-facet--geoRegion flex-shrink-zero inline-block search-s-facet--is-closed ember-view";
     public static final String COMPANIES_SELECTOR = ".search-vertical-filter__filter-item .search-vertical-filter__dropdown-list-item-button--COMPANIES";
     public static final String COMPANY_SELECTOR = ".search-results__list li a";
 
-    public static final String SEARCH_BASIC_TYPEAHEAD_SEARCH_VERTICAL_TYPEAHEAD_EMBER_VIEW_INPUT = ".search-s-facet__values search-s-facet__values--geoRegion input";
     public static final String NUMBER_EMPLOYEES_SELECTOR = ".link-without-visited-state span";
     public static final String SEARCH_FILTERS_BAR_ALL_FILTERS = ".search-filters-bar__all-filters";
     public static final String SEARCH_TYPEAHEAD_V2_HIT = ".search-typeahead-v2__hit";
