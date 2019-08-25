@@ -102,9 +102,10 @@ public class LinkedinService {
                     DbUtils.deleteCompany(companyname,DbUtils.getConnector());
                     continue;
                 }
-                nbre_total = selectCompanyLocation(driver, companies,"France");
+                nbre_total = getNumberTotalOfTheCompanyByLocation(driver, companies,"France");
+                nbre_research = getNumberEmployeesFilter(driver,"phd");
+                nbre_ingenieur = getNumberEmployeesFilter(driver,"software");
                 System.out.println(companyname+" ==> "+ nbre_total);
-
                 // if there is probleme in search open new session
                 if(notFoundCompaniesNumber> MAX_TRY_NUMBER){
                     MAX_TRY_NUMBER+=5;
@@ -134,7 +135,7 @@ public class LinkedinService {
             return true;
     }
 
-    private String selectCompanyLocation(WebDriver driver,List<WebElement> companies, String location) throws InterruptedException {
+    private String getNumberTotalOfTheCompanyByLocation(WebDriver driver, List<WebElement> companies, String location) throws InterruptedException {
 
         String  total_of_emplyees= null;
         try {
@@ -184,6 +185,41 @@ public class LinkedinService {
 
         return total_of_emplyees;
     }
+
+
+    public  String getNumberEmployeesFilter(WebDriver driver, String filtername) throws InterruptedException {
+        String  total_of_emplyees= null;
+        try {
+            System.out.println("Filter By: ----***--"+ filtername);
+            WebDriverWait wait = new WebDriverWait(driver, 3);
+            randomWait();
+            driver.findElement(By.xpath("//*[@data-control-name='all_filters']")).click();
+            randomWait();
+
+            WebElement titleElement = driver.findElement(By.xpath("//*[@id=\"search-advanced-title\"]"));
+            titleElement.clear();
+            titleElement.sendKeys(filtername);
+            randomWait();
+            driver.findElement(By.xpath("//*[@data-control-name='all_filters_apply']")).click();
+            Thread.sleep(3000);
+            //search-results__total
+            if (driver.findElements(By.className("t-20")).size() > 0) {
+                System.out.println("");
+                List<WebElement> not_found = driver.findElements(By.className("t-20"));
+                System.out.println(not_found.get(1).getText());
+            } else {
+                waitElement(driver, SEARCH_RESULTS_TOTAL);
+                WebElement numberTotal = driver.findElement(By.cssSelector(SEARCH_RESULTS_TOTAL));
+                total_of_emplyees = numberTotal.getText();
+                System.out.println(numberTotal.getText());
+            }
+
+        } catch (Exception e) {
+            //e.printStackTrace();
+        }
+        return total_of_emplyees;
+    }
+
 
     private void searchForCompany(WebDriver driver, String companyname) throws InterruptedException {
         waitElement(driver,NAV_SEARCH_BAR_INPUT);

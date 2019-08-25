@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public class Main {
-    public static final int MAX_PROXIES = 8200;
+    public static final int MAX_PROXIES = 8056;
     // csv file info
     private static LinkedinService linkedinService = new LinkedinService();
     private static ChromeDriver driver;
@@ -63,7 +63,7 @@ public class Main {
     }
 
     public static void declareDrivers() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
         System.setProperty("webdriver.firefox.marionette", "src/main/resources/drivers/geckodriver");
     }
 
