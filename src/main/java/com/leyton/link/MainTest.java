@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class MainTest {
 
@@ -25,8 +26,8 @@ public class MainTest {
 
         WebElement button = driver.findElement(By.cssSelector(LOGIN_FORM_ACTION_CONTAINER_BUTTON));
 
-        username.sendKeys("wijdane.oudli@gmail.com");
-        password.sendKeys("");
+        username.sendKeys("hatem201901@gmail.com");
+        password.sendKeys("Hatem2019");
 
         LinkedinService linkedinService = new LinkedinService();
 

@@ -11,11 +11,12 @@ import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
 
 
 public class Main {
-    public static final int MAX_PROXIES = 8056;
+    public static final int MAX_PROXIES = 10574;
     // csv file info
     private static LinkedinService linkedinService = new LinkedinService();
     private static ChromeDriver driver;
@@ -69,9 +70,12 @@ public class Main {
 
     private static WebDriver authenticateToProxy(String username, String password, String proxy) throws Exception {
         // create proxy
-        DesiredCapabilities capabilities = createProxy(proxy);
+       // DesiredCapabilities capabilities = createProxy(proxy);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("chrome.switches", Arrays.asList("--proxy-server=http://"+username+":"+password+"@proxy.com:8080"));
+
         WebDriver driver = new ChromeDriver(capabilities);
-        authentification(username, password);
+       // authentification(username, password);
         waitingForInfo();
         return driver;
     }

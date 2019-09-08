@@ -24,7 +24,7 @@ public class LinkedinService {
     public static final String SEARCH_ADVANCED_FACETS_BUTTON_APPLY = ".search-advanced-facets__button--apply";
     public static final String SEARCH_RESULTS_TOTAL = ".search-results__total";
     public static int MAX_TRY_NUMBER = 10;
-
+    public static final String SEARCH_FOR_STATIC_CASE = "&facetGeoRegion=%5B\"fr%3A0\"%5D&origin=FACETED_SEARCH";
 
     public boolean createLinkedInAccount(WebDriver driver) throws Exception {
         WebElement firstNameElement = null;
@@ -66,6 +66,7 @@ public class LinkedinService {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".neptune-grid a")));
             driver.findElement(By.cssSelector(".neptune-grid a")).click();
         } else {
+            driver.getCurrentUrl();
             driver.get("https://www.linkedin.com/feed/");
         }
 
@@ -75,7 +76,7 @@ public class LinkedinService {
     public boolean searchForCompanies(WebDriver driver) throws Exception {
 
         waitElement(driver,null);
-            //-----------------------------Load Names From CSV-----------------------
+        //-----------------------------Load Names From CSV-----------------------
         ResultSet resultSetEntreprise = DbUtils.getData();
         int notFoundCompaniesNumber = 0;
         while (resultSetEntreprise.next()) {
@@ -115,24 +116,24 @@ public class LinkedinService {
                 notFoundCompaniesNumber=0;
                 DbUtils.saveToDB(companyname, nbre_total, nbre_research, nbre_ingenieur);
 
-                }catch (SQLException e) {
-                        System.out.println("Fail SQL !");
-                }
-                catch (NoSuchElementException | ElementNotInteractableException | ElementNotSelectableException ex){
-                 System.out.println("DOM probleme not grave ==> so continue"+ex);
-                }
-                catch (TimeoutException ex){
-                    System.out.println("element not found time out !");
-                }
-                catch (Exception ex){
-                    System.out.println("fatal Exception :"+ex);
-                    // return false mean open new session
-                    return false;
-                }
-
+            }catch (SQLException e) {
+                System.out.println("Fail SQL !");
             }
-            // return true mean work is done
-            return true;
+            catch (NoSuchElementException | ElementNotInteractableException | ElementNotSelectableException ex){
+                System.out.println("DOM probleme not grave ==> so continue"+ex);
+            }
+            catch (TimeoutException ex){
+                System.out.println("element not found time out !");
+            }
+            catch (Exception ex){
+                System.out.println("fatal Exception :"+ex);
+                // return false mean open new session
+                return false;
+            }
+
+        }
+        // return true mean work is done
+        return true;
     }
 
     private String getNumberTotalOfTheCompanyByLocation(WebDriver driver, List<WebElement> companies, String location) throws InterruptedException {
@@ -147,7 +148,7 @@ public class LinkedinService {
                 see_details.click();
                 System.out.println("location: ----***--");
                 //LOCATION_SELECTORThread.sleep(3000);
-                waitElement(driver, SEARCH_FILTERS_BAR_ALL_FILTERS);
+               /* waitElement(driver, SEARCH_FILTERS_BAR_ALL_FILTERS);
                 WebElement all_filters = driver.findElement(By.cssSelector(SEARCH_FILTERS_BAR_ALL_FILTERS));
                 all_filters.click();
                 WebDriverWait wait=new WebDriverWait(driver,30);
@@ -164,18 +165,25 @@ public class LinkedinService {
                 //search-advanced-facets__button--apply
                 waitElement(driver, SEARCH_ADVANCED_FACETS_BUTTON_APPLY);
                 WebElement apply = driver.findElement(By.cssSelector(SEARCH_ADVANCED_FACETS_BUTTON_APPLY));
-                apply.click();
+                apply.click();*/
                 Thread.sleep(3000);
+                driver.get(driver.getCurrentUrl()+ SEARCH_FOR_STATIC_CASE);
                 //search-results__total
-                if (driver.findElements(By.className("t-20")).size() > 0) {
+                if (driver.findElements(By.className("t-20")).size() != 0) {
+                    waitElement(driver, SEARCH_RESULTS_TOTAL);
+                    Thread.sleep(3000);
+                    WebElement numberTotal = driver.findElement(By.cssSelector(SEARCH_RESULTS_TOTAL));
+                    Thread.sleep(3000);
+                    total_of_emplyees = numberTotal.getText();
+                    System.out.println(numberTotal.getText());
+                } else {
+
+
                     System.out.println("");
                     List<WebElement> not_found = driver.findElements(By.className("t-20"));
                     System.out.println(not_found.get(1).getText());
-                } else {
-                    waitElement(driver, SEARCH_RESULTS_TOTAL);
-                    WebElement numberTotal = driver.findElement(By.cssSelector(SEARCH_RESULTS_TOTAL));
-                    total_of_emplyees = numberTotal.getText();
-                    System.out.println(numberTotal.getText());
+
+
                 }
             }
 
@@ -190,28 +198,34 @@ public class LinkedinService {
     public  String getNumberEmployeesFilter(WebDriver driver, String filtername) throws InterruptedException {
         String  total_of_emplyees= null;
         try {
+            Thread.sleep(3000);
             System.out.println("Filter By: ----***--"+ filtername);
             WebDriverWait wait = new WebDriverWait(driver, 3);
-            randomWait();
+            Thread.sleep(3000);
             driver.findElement(By.xpath("//*[@data-control-name='all_filters']")).click();
-            randomWait();
+            Thread.sleep(3000);
 
             WebElement titleElement = driver.findElement(By.xpath("//*[@id=\"search-advanced-title\"]"));
             titleElement.clear();
             titleElement.sendKeys(filtername);
-            randomWait();
+            Thread.sleep(3000);
             driver.findElement(By.xpath("//*[@data-control-name='all_filters_apply']")).click();
             Thread.sleep(3000);
             //search-results__total
-            if (driver.findElements(By.className("t-20")).size() > 0) {
-                System.out.println("");
-                List<WebElement> not_found = driver.findElements(By.className("t-20"));
-                System.out.println(not_found.get(1).getText());
-            } else {
+            if (driver.findElements(By.className("t-20")).size() != 0) {
                 waitElement(driver, SEARCH_RESULTS_TOTAL);
+                Thread.sleep(3000);
                 WebElement numberTotal = driver.findElement(By.cssSelector(SEARCH_RESULTS_TOTAL));
                 total_of_emplyees = numberTotal.getText();
                 System.out.println(numberTotal.getText());
+            } else {
+
+                System.out.println("");
+                List<WebElement> not_found = driver.findElements(By.className("t-20"));
+                System.out.println(not_found.get(1).getText());
+
+
+
             }
 
         } catch (Exception e) {
